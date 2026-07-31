@@ -1,0 +1,329 @@
+{
+  "authority_boundary": "The prediction is evidence only. It cannot authorize or execute an action.",
+  "class_names": [
+    "authentication_failure",
+    "dependency_failure",
+    "deployment_regression",
+    "infrastructure_saturation",
+    "network_degradation",
+    "unknown"
+  ],
+  "deterministic_baseline_test_metrics": {
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        15,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        15,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    ],
+    "expected_calibration_error": 0.0,
+    "f1_macro": 1.0,
+    "log_loss": 2.2204460492503136e-16,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0
+  },
+  "excluded_columns": [
+    "incident_id",
+    "category",
+    "severity"
+  ],
+  "feature_columns": [
+    "login_failure_rate",
+    "token_validation_error_rate",
+    "http_5xx_rate",
+    "latency_p95_ms",
+    "cpu_utilization_percent",
+    "memory_utilization_percent",
+    "dependency_error_rate",
+    "network_packet_loss_percent",
+    "deployment_age_minutes",
+    "affected_user_count",
+    "regions_affected"
+  ],
+  "feature_schema_version": "incident-features-v1",
+  "model_artifact": {
+    "path": "model.joblib",
+    "sha256": "1b0c3fd8b69d497caf8b248abe06055aabeb346f0f8a7cc98da8b79fd0a92b52"
+  },
+  "model_explanation": {
+    "features": [
+      {
+        "feature": "network_packet_loss_percent",
+        "importance": 0.14620489
+      },
+      {
+        "feature": "dependency_error_rate",
+        "importance": 0.14388732
+      },
+      {
+        "feature": "affected_user_count",
+        "importance": 0.11900516
+      },
+      {
+        "feature": "cpu_utilization_percent",
+        "importance": 0.10841555
+      },
+      {
+        "feature": "token_validation_error_rate",
+        "importance": 0.1068749
+      }
+    ],
+    "method": "random_forest_feature_importance"
+  },
+  "model_version": "incident-classifier-v1",
+  "random_seed": 42,
+  "selected_model": "random_forest",
+  "selection_metric": "validation_macro_f1",
+  "selection_rule": "highest validation macro F1; lower validation log loss breaks ties",
+  "split_label_distributions": {
+    "test": {
+      "authentication_failure": 15,
+      "dependency_failure": 15,
+      "deployment_regression": 15,
+      "infrastructure_saturation": 15,
+      "network_degradation": 15,
+      "unknown": 15
+    },
+    "train": {
+      "authentication_failure": 70,
+      "dependency_failure": 70,
+      "deployment_regression": 70,
+      "infrastructure_saturation": 70,
+      "network_degradation": 70,
+      "unknown": 70
+    },
+    "validation": {
+      "authentication_failure": 15,
+      "dependency_failure": 15,
+      "deployment_regression": 15,
+      "infrastructure_saturation": 15,
+      "network_degradation": 15,
+      "unknown": 15
+    }
+  },
+  "split_record_counts": {
+    "test": 90,
+    "train": 420,
+    "validation": 90
+  },
+  "test_metrics": {
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        15,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        15,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    ],
+    "expected_calibration_error": 0.04431156642375285,
+    "f1_macro": 1.0,
+    "log_loss": 0.04982465309834058,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0
+  },
+  "validation_candidates": {
+    "logistic_regression": {
+      "accuracy": 0.9888888888888889,
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          14,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ]
+      ],
+      "expected_calibration_error": 0.025426851447176775,
+      "f1_macro": 0.988876529477197,
+      "log_loss": 0.05212088770989582,
+      "precision_macro": 0.9895833333333334,
+      "recall_macro": 0.9888888888888889
+    },
+    "random_forest": {
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15
+        ]
+      ],
+      "expected_calibration_error": 0.03918127823435489,
+      "f1_macro": 1.0,
+      "log_loss": 0.04156589720301147,
+      "precision_macro": 1.0,
+      "recall_macro": 1.0
+    }
+  }
+}
