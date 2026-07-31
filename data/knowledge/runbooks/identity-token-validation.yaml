@@ -1,0 +1,30 @@
+document:
+  document_id: runbook-identity-token-validation
+  title: Identity API token-validation failure runbook
+  document_type: runbook
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - staging
+    - production
+  allowed_roles:
+    - incident_responder
+    - production_operator
+    - incident_commander
+    - security_reviewer
+  sensitivity: internal
+  created_at: "2026-06-10T10:00:00Z"
+  updated_at: "2026-07-20T14:30:00Z"
+  trusted_instruction_source: true
+  content: |
+    Use this runbook when login failures coincide with token-validation errors.
+
+    Diagnostic sequence:
+    1. Confirm which token-validation error codes increased.
+    2. Inspect signing-key identifier mismatches.
+    3. Compare issuer and audience configuration with the approved baseline.
+    4. Check whether a deployment or secret rotation occurred.
+    5. Compare failures by region and application client.
+
+    Do not restart or roll back production solely because authentication errors
+    increased. Collect deployment, configuration, and key-rotation evidence first.

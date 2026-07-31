@@ -1,0 +1,23 @@
+document:
+  document_id: deployment-identity-api-4-3-1
+  title: Identity API deployment 4.3.1
+  document_type: deployment_record
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - production
+  allowed_roles:
+    - incident_responder
+    - production_operator
+    - incident_commander
+  sensitivity: restricted
+  created_at: "2026-07-22T11:00:00Z"
+  updated_at: "2026-07-22T11:00:00Z"
+  trusted_instruction_source: false
+  content: |
+    Version 4.3.1 was deployed to production.
+
+    Changes:
+    - Dependency client retry correction.
+    - Logging changes.
+    - No identity configuration changes.

@@ -1,0 +1,695 @@
+{
+  "case_reports": [
+    {
+      "case_id": "recent-deployment-with-authentication-signals",
+      "classifier_evidence": {
+        "classifiers_agree": true,
+        "deterministic_category": "deployment_regression",
+        "ml_category": "deployment_regression",
+        "ml_second_category": "authentication_failure",
+        "review_triggers": [
+          "multiple_deterministic_rules_matched",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "recent deployment version configuration change regression rollback verification login failures token validation signing key issuer audience authentication configuration Authentication-specific errors are stronger than the generic deployment signal. multiple deterministic rules matched contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-identity-token-validation]",
+          "document_id": "runbook-identity-token-validation",
+          "document_type": "runbook",
+          "hybrid_score": 0.20564765,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API token-validation failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-auth-key-mismatch-2026-06]",
+          "document_id": "incident-auth-key-mismatch-2026-06",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.14179036,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior incident involving signing-key mismatch",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-2]",
+          "document_id": "deployment-identity-api-4-3-2",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.1212259,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.2",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[runbook-deployment-regression]",
+          "document_id": "runbook-deployment-regression",
+          "document_type": "runbook",
+          "hybrid_score": 0.09245688,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment regression runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-1]",
+          "document_id": "deployment-identity-api-4-3-1",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.06229481,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.1",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "dependency-errors-with-network-loss",
+      "classifier_evidence": {
+        "classifiers_agree": false,
+        "deterministic_category": "network_degradation",
+        "ml_category": "dependency_failure",
+        "ml_second_category": "network_degradation",
+        "review_triggers": [
+          "classifier_disagreement",
+          "low_ml_confidence",
+          "low_ml_probability_margin",
+          "multiple_deterministic_rules_matched",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "packet loss latency retransmission regional network dependency errors timeout retry downstream failure Network loss could be causing the downstream dependency errors. classifier disagreement low ml confidence low ml probability margin multiple deterministic rules matched contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-dependency-failure]",
+          "document_id": "runbook-dependency-failure",
+          "document_type": "runbook",
+          "hybrid_score": 0.2605664,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Downstream dependency failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[runbook-network-degradation]",
+          "document_id": "runbook-network-degradation",
+          "document_type": "runbook",
+          "hybrid_score": 0.15246878,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Regional network degradation runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-network-noise-2026-05]",
+          "document_id": "incident-network-noise-2026-05",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.09280033,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior false-positive network degradation incident",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[runbook-identity-token-validation]",
+          "document_id": "runbook-identity-token-validation",
+          "document_type": "runbook",
+          "hybrid_score": 0.0552641,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API token-validation failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-1]",
+          "document_id": "deployment-identity-api-4-3-1",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.04230566,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.1",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "deployment-just-outside-rule-window",
+      "classifier_evidence": {
+        "classifiers_agree": false,
+        "deterministic_category": "unknown",
+        "ml_category": "deployment_regression",
+        "ml_second_category": "dependency_failure",
+        "review_triggers": [
+          "classifier_disagreement",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "incident diagnosis missing evidence prior incident service ownership escalation recent deployment version configuration change regression rollback verification dependency errors timeout retry downstream failure The deployment occurred one minute outside the fixed rule threshold. classifier disagreement contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-deployment-regression]",
+          "document_id": "runbook-deployment-regression",
+          "document_type": "runbook",
+          "hybrid_score": 0.15420645,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment regression runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[runbook-dependency-failure]",
+          "document_id": "runbook-dependency-failure",
+          "document_type": "runbook",
+          "hybrid_score": 0.12715024,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Downstream dependency failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-auth-key-mismatch-2026-06]",
+          "document_id": "incident-auth-key-mismatch-2026-06",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.11960852,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior incident involving signing-key mismatch",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[service-identity-api-ownership]",
+          "document_id": "service-identity-api-ownership",
+          "document_type": "service_documentation",
+          "hybrid_score": 0.11905567,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API ownership and escalation",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-2]",
+          "document_id": "deployment-identity-api-4-3-2",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.10068038,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.2",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "missing-deployment-context-with-auth-failures",
+      "classifier_evidence": {
+        "classifiers_agree": true,
+        "deterministic_category": "authentication_failure",
+        "ml_category": "authentication_failure",
+        "ml_second_category": "deployment_regression",
+        "review_triggers": [
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "login failures token validation signing key issuer audience authentication configuration recent deployment version configuration change regression rollback verification Missing deployment data prevents ruling out a recent configuration change. contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-identity-token-validation]",
+          "document_id": "runbook-identity-token-validation",
+          "document_type": "runbook",
+          "hybrid_score": 0.19594001,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API token-validation failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-auth-key-mismatch-2026-06]",
+          "document_id": "incident-auth-key-mismatch-2026-06",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.14978653,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior incident involving signing-key mismatch",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-2]",
+          "document_id": "deployment-identity-api-4-3-2",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.12761589,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.2",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[runbook-deployment-regression]",
+          "document_id": "runbook-deployment-regression",
+          "document_type": "runbook",
+          "hybrid_score": 0.0974992,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment regression runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-1]",
+          "document_id": "deployment-identity-api-4-3-1",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.06699481,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.1",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "saturation-and-dependency-overlap",
+      "classifier_evidence": {
+        "classifiers_agree": true,
+        "deterministic_category": "infrastructure_saturation",
+        "ml_category": "infrastructure_saturation",
+        "ml_second_category": "dependency_failure",
+        "review_triggers": [
+          "low_ml_confidence",
+          "multiple_deterministic_rules_matched",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "cpu memory saturation latency queue workload dependency errors timeout retry downstream failure A failing dependency may be creating workload buildup and resource saturation. low ml confidence multiple deterministic rules matched contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-dependency-failure]",
+          "document_id": "runbook-dependency-failure",
+          "document_type": "runbook",
+          "hybrid_score": 0.198147,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Downstream dependency failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-auth-key-mismatch-2026-06]",
+          "document_id": "incident-auth-key-mismatch-2026-06",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.07438362,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior incident involving signing-key mismatch",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[runbook-network-degradation]",
+          "document_id": "runbook-network-degradation",
+          "document_type": "runbook",
+          "hybrid_score": 0.06022699,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Regional network degradation runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[runbook-identity-token-validation]",
+          "document_id": "runbook-identity-token-validation",
+          "document_type": "runbook",
+          "hybrid_score": 0.05462656,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API token-validation failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-network-noise-2026-05]",
+          "document_id": "incident-network-noise-2026-05",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.05378368,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior false-positive network degradation incident",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "widespread-errors-without-dominant-pattern",
+      "classifier_evidence": {
+        "classifiers_agree": false,
+        "deterministic_category": "unknown",
+        "ml_category": "network_degradation",
+        "ml_second_category": "deployment_regression",
+        "review_triggers": [
+          "classifier_disagreement",
+          "low_ml_confidence",
+          "low_ml_probability_margin",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "incident diagnosis missing evidence prior incident service ownership escalation packet loss latency retransmission regional network recent deployment version configuration change regression rollback verification dependency errors timeout retry downstream failure Impact is severe, but category-specific thresholds remain just below limits. classifier disagreement low ml confidence low ml probability margin contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-dependency-failure]",
+          "document_id": "runbook-dependency-failure",
+          "document_type": "runbook",
+          "hybrid_score": 0.13728671,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Downstream dependency failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[runbook-network-degradation]",
+          "document_id": "runbook-network-degradation",
+          "document_type": "runbook",
+          "hybrid_score": 0.1116795,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Regional network degradation runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[service-identity-api-ownership]",
+          "document_id": "service-identity-api-ownership",
+          "document_type": "service_documentation",
+          "hybrid_score": 0.10033617,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API ownership and escalation",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[runbook-deployment-regression]",
+          "document_id": "runbook-deployment-regression",
+          "document_type": "runbook",
+          "hybrid_score": 0.09581089,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment regression runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-network-noise-2026-05]",
+          "document_id": "incident-network-noise-2026-05",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.07894311,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior false-positive network degradation incident",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "near-threshold-multi-signal-incident",
+      "classifier_evidence": {
+        "classifiers_agree": false,
+        "deterministic_category": "unknown",
+        "ml_category": "infrastructure_saturation",
+        "ml_second_category": "network_degradation",
+        "review_triggers": [
+          "classifier_disagreement",
+          "low_ml_confidence",
+          "low_ml_probability_margin",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "incident diagnosis missing evidence prior incident service ownership escalation cpu memory saturation latency queue workload packet loss latency retransmission regional network recent deployment version configuration change regression rollback verification login failures token validation signing key issuer audience authentication configuration dependency errors timeout retry downstream failure Tiny measurement changes could activate several deterministic rules. classifier disagreement low ml confidence low ml probability margin contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[incident-auth-key-mismatch-2026-06]",
+          "document_id": "incident-auth-key-mismatch-2026-06",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.16215141,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior incident involving signing-key mismatch",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[runbook-dependency-failure]",
+          "document_id": "runbook-dependency-failure",
+          "document_type": "runbook",
+          "hybrid_score": 0.14802895,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Downstream dependency failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[runbook-identity-token-validation]",
+          "document_id": "runbook-identity-token-validation",
+          "document_type": "runbook",
+          "hybrid_score": 0.14047697,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API token-validation failure runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[service-identity-api-ownership]",
+          "document_id": "service-identity-api-ownership",
+          "document_type": "service_documentation",
+          "hybrid_score": 0.11032341,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API ownership and escalation",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[deployment-identity-api-4-3-2]",
+          "document_id": "deployment-identity-api-4-3-2",
+          "document_type": "deployment_record",
+          "hybrid_score": 0.10909126,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API deployment 4.3.2",
+          "trusted_instruction_source": false
+        }
+      ]
+    },
+    {
+      "case_id": "isolated-noisy-network-spike",
+      "classifier_evidence": {
+        "classifiers_agree": false,
+        "deterministic_category": "network_degradation",
+        "ml_category": "unknown",
+        "ml_second_category": "network_degradation",
+        "review_triggers": [
+          "classifier_disagreement",
+          "low_ml_confidence",
+          "low_ml_probability_margin",
+          "contradictory_evidence_present"
+        ]
+      },
+      "denied_document_evidence": [
+        {
+          "document_id": "service-identity-api-security-restricted",
+          "document_type": "security_documentation",
+          "reason_codes": [
+            "role_not_allowed"
+          ]
+        },
+        {
+          "document_id": "service-payments-api-other-tenant",
+          "document_type": "service_documentation",
+          "reason_codes": [
+            "tenant_mismatch",
+            "service_scope_mismatch"
+          ]
+        }
+      ],
+      "retrieval_query": "packet loss latency retransmission regional network incident diagnosis missing evidence prior incident service ownership escalation A single threshold crossing is unsupported by latency or user-impact evidence. classifier disagreement low ml confidence low ml probability margin contradictory evidence present",
+      "retrieval_results": [
+        {
+          "citation": "[runbook-network-degradation]",
+          "document_id": "runbook-network-degradation",
+          "document_type": "runbook",
+          "hybrid_score": 0.18470913,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Regional network degradation runbook",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-network-noise-2026-05]",
+          "document_id": "incident-network-noise-2026-05",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.12948595,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior false-positive network degradation incident",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[service-identity-api-ownership]",
+          "document_id": "service-identity-api-ownership",
+          "document_type": "service_documentation",
+          "hybrid_score": 0.11058294,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Identity API ownership and escalation",
+          "trusted_instruction_source": true
+        },
+        {
+          "citation": "[incident-auth-key-mismatch-2026-06]",
+          "document_id": "incident-auth-key-mismatch-2026-06",
+          "document_type": "prior_incident",
+          "hybrid_score": 0.07572051,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Prior incident involving signing-key mismatch",
+          "trusted_instruction_source": false
+        },
+        {
+          "citation": "[runbook-dependency-failure]",
+          "document_id": "runbook-dependency-failure",
+          "document_type": "runbook",
+          "hybrid_score": 0.05956223,
+          "prompt_injection_detected": false,
+          "prompt_injection_markers": [],
+          "title": "Downstream dependency failure runbook",
+          "trusted_instruction_source": true
+        }
+      ]
+    }
+  ],
+  "identity": {
+    "roles": [
+      "incident_responder"
+    ],
+    "tenant_id": "tenant-alpha",
+    "user_id": "engineer-42"
+  },
+  "retrieval_version": "permission-aware-retrieval-v1",
+  "scope": {
+    "environment": "production",
+    "service": "identity-api"
+  },
+  "security_properties": {
+    "citations_required": true,
+    "denied_content_returned": false,
+    "permission_filtering_before_ranking": true,
+    "prompt_injection_inspection": true
+  }
+}

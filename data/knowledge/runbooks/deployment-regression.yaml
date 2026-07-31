@@ -1,0 +1,28 @@
+document:
+  document_id: runbook-deployment-regression
+  title: Identity API deployment regression runbook
+  document_type: runbook
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - staging
+    - production
+  allowed_roles:
+    - incident_responder
+    - production_operator
+    - incident_commander
+  sensitivity: internal
+  created_at: "2026-05-15T09:00:00Z"
+  updated_at: "2026-07-18T16:00:00Z"
+  trusted_instruction_source: true
+  content: |
+    Use this runbook when an incident begins near a deployment.
+
+    Diagnostic sequence:
+    1. Retrieve the exact deployment timestamp and version.
+    2. Compare error rates before and after deployment.
+    3. Check configuration, schema, and dependency changes.
+    4. Validate whether the failure is isolated to the deployed version.
+    5. Require incident-commander approval before a production rollback.
+
+    A fixed thirty-minute window is a triage heuristic, not proof of causation.

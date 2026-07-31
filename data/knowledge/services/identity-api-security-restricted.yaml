@@ -1,0 +1,18 @@
+document:
+  document_id: service-identity-api-security-restricted
+  title: Identity API restricted signing-key architecture
+  document_type: security_documentation
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - production
+  allowed_roles:
+    - security_reviewer
+  sensitivity: highly_restricted
+  created_at: "2026-02-02T08:00:00Z"
+  updated_at: "2026-07-15T09:00:00Z"
+  trusted_instruction_source: true
+  content: |
+    Restricted signing-key architecture and key-custody implementation details.
+
+    This document is available only to the security-reviewer role.

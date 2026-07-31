@@ -1,0 +1,29 @@
+document:
+  document_id: runbook-dependency-failure
+  title: Downstream dependency failure runbook
+  document_type: runbook
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - production
+  allowed_roles:
+    - incident_responder
+    - production_operator
+    - incident_commander
+  sensitivity: internal
+  created_at: "2026-04-11T08:00:00Z"
+  updated_at: "2026-07-11T12:00:00Z"
+  trusted_instruction_source: true
+  content: |
+    Use this runbook when dependency errors, server errors, or timeout rates rise.
+
+    Determine whether the dependency is the root cause or whether network loss,
+    resource saturation, or retry amplification is causing downstream failures.
+
+    Compare:
+    - dependency error rate
+    - connection timeout rate
+    - packet loss
+    - retry volume
+    - queue depth
+    - upstream resource utilization

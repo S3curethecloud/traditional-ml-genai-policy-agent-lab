@@ -1,0 +1,19 @@
+document:
+  document_id: service-payments-api-other-tenant
+  title: Payments API production operations
+  document_type: service_documentation
+  tenant_id: tenant-beta
+  service: payments-api
+  environment_scope:
+    - production
+  allowed_roles:
+    - incident_responder
+    - production_operator
+  sensitivity: restricted
+  created_at: "2026-01-01T08:00:00Z"
+  updated_at: "2026-07-15T09:00:00Z"
+  trusted_instruction_source: true
+  content: |
+    Payments API operational procedures for tenant beta.
+
+    These procedures must not be visible to tenant-alpha users.

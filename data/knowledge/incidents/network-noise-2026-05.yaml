@@ -1,0 +1,24 @@
+document:
+  document_id: incident-network-noise-2026-05
+  title: Prior false-positive network degradation incident
+  document_type: prior_incident
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - production
+  allowed_roles:
+    - incident_responder
+    - production_operator
+    - incident_commander
+  sensitivity: internal
+  created_at: "2026-05-03T08:00:00Z"
+  updated_at: "2026-05-05T15:00:00Z"
+  trusted_instruction_source: false
+  content: |
+    A single packet-loss measurement crossed the alert threshold.
+
+    Follow-up measurements were normal. Latency, retransmissions, and user
+    errors did not increase. The event was classified as measurement noise.
+
+    Lesson:
+    Require corroborating telemetry before diagnosing network degradation.

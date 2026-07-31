@@ -1,0 +1,26 @@
+document:
+  document_id: service-identity-api-ownership
+  title: Identity API ownership and escalation
+  document_type: service_documentation
+  tenant_id: tenant-alpha
+  service: identity-api
+  environment_scope:
+    - staging
+    - production
+  allowed_roles:
+    - support_engineer
+    - incident_responder
+    - production_operator
+    - incident_commander
+    - security_reviewer
+  sensitivity: internal
+  created_at: "2026-01-12T08:00:00Z"
+  updated_at: "2026-07-01T10:00:00Z"
+  trusted_instruction_source: true
+  content: |
+    Service owner: Identity Platform Team.
+
+    Escalation:
+    - Operational incidents: incident commander
+    - Token or signing-key concerns: identity security reviewer
+    - Production rollback: production operator plus incident commander approval
