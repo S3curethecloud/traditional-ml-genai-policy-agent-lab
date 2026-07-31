@@ -1,0 +1,331 @@
+{
+  "downstream_instruction": "Use disagreement, competing signals, contradictions, confidence, and probability margin as evidence for GenAI hypothesis generation. Do not treat either classifier as authorization.",
+  "evaluation_pack_version": "phase-3b-ambiguity-v1",
+  "evaluation_type": "sealed_post_selection_challenge",
+  "input_artifacts": {
+    "ambiguity_pack": {
+      "path": "data/ambiguity/phase-3b-cases.yaml",
+      "sha256": "d06d117ccfc36ed9aa3a62c23ed122d7b54c301f0d042fbb85f1ee5c1a28047c"
+    },
+    "locked_metadata": {
+      "path": "models/incident-classifier/metadata.json",
+      "sha256": "d0de032cec094511176c760e3d57a659012da222078c6c336091034ce500b02e"
+    },
+    "locked_model": {
+      "path": "models/incident-classifier/model.joblib",
+      "sha256": "1b0c3fd8b69d497caf8b248abe06055aabeb346f0f8a7cc98da8b79fd0a92b52"
+    }
+  },
+  "model_selection_performed": false,
+  "results": [
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "recent-deployment-with-authentication-signals",
+      "class_probabilities": {
+        "authentication_failure": 0.13428571,
+        "dependency_failure": 0.0,
+        "deployment_regression": 0.86571429,
+        "infrastructure_saturation": 0.0,
+        "network_degradation": 0.0,
+        "unknown": 0.0
+      },
+      "classifiers_agree": true,
+      "competing_signals": [
+        "deployment_regression",
+        "authentication_failure"
+      ],
+      "contradictions": [
+        "Authentication-specific errors are stronger than the generic deployment signal."
+      ],
+      "deterministic_category": "deployment_regression",
+      "deterministic_confidence": 0.85,
+      "deterministic_matched_rules": [
+        "deployment-regression-001",
+        "authentication-failure-001"
+      ],
+      "ml_category": "deployment_regression",
+      "ml_confidence": 0.86571429,
+      "ml_probability_margin": 0.73142858,
+      "ml_second_category": "authentication_failure",
+      "ml_second_probability": 0.13428571,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "multiple_deterministic_rules_matched",
+        "contradictory_evidence_present"
+      ],
+      "title": "Recent deployment and strong authentication signals"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "dependency-errors-with-network-loss",
+      "class_probabilities": {
+        "authentication_failure": 0.0,
+        "dependency_failure": 0.51388889,
+        "deployment_regression": 0.00083333,
+        "infrastructure_saturation": 0.0,
+        "network_degradation": 0.48527778,
+        "unknown": 0.0
+      },
+      "classifiers_agree": false,
+      "competing_signals": [
+        "dependency_failure",
+        "network_degradation"
+      ],
+      "contradictions": [
+        "Network loss could be causing the downstream dependency errors."
+      ],
+      "deterministic_category": "network_degradation",
+      "deterministic_confidence": 0.85,
+      "deterministic_matched_rules": [
+        "network-degradation-001",
+        "dependency-failure-001"
+      ],
+      "ml_category": "dependency_failure",
+      "ml_confidence": 0.51388889,
+      "ml_probability_margin": 0.02861111000000005,
+      "ml_second_category": "network_degradation",
+      "ml_second_probability": 0.48527778,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "classifier_disagreement",
+        "low_ml_confidence",
+        "low_ml_probability_margin",
+        "multiple_deterministic_rules_matched",
+        "contradictory_evidence_present"
+      ],
+      "title": "Dependency failures coexist with network degradation"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "deployment-just-outside-rule-window",
+      "class_probabilities": {
+        "authentication_failure": 0.02339683,
+        "dependency_failure": 0.07443651,
+        "deployment_regression": 0.84033333,
+        "infrastructure_saturation": 0.00944444,
+        "network_degradation": 0.03933333,
+        "unknown": 0.01305556
+      },
+      "classifiers_agree": false,
+      "competing_signals": [
+        "deployment_regression",
+        "unknown"
+      ],
+      "contradictions": [
+        "The deployment occurred one minute outside the fixed rule threshold."
+      ],
+      "deterministic_category": "unknown",
+      "deterministic_confidence": 0.0,
+      "deterministic_matched_rules": [],
+      "ml_category": "deployment_regression",
+      "ml_confidence": 0.84033333,
+      "ml_probability_margin": 0.76589682,
+      "ml_second_category": "dependency_failure",
+      "ml_second_probability": 0.07443651,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "classifier_disagreement",
+        "contradictory_evidence_present"
+      ],
+      "title": "Failure begins just outside the deterministic deployment window"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "missing-deployment-context-with-auth-failures",
+      "class_probabilities": {
+        "authentication_failure": 0.97552337,
+        "dependency_failure": 0.00066667,
+        "deployment_regression": 0.02380996,
+        "infrastructure_saturation": 0.0,
+        "network_degradation": 0.0,
+        "unknown": 0.0
+      },
+      "classifiers_agree": true,
+      "competing_signals": [
+        "authentication_failure",
+        "deployment_regression"
+      ],
+      "contradictions": [
+        "Missing deployment data prevents ruling out a recent configuration change."
+      ],
+      "deterministic_category": "authentication_failure",
+      "deterministic_confidence": 0.7,
+      "deterministic_matched_rules": [
+        "authentication-failure-001"
+      ],
+      "ml_category": "authentication_failure",
+      "ml_confidence": 0.97552337,
+      "ml_probability_margin": 0.95171341,
+      "ml_second_category": "deployment_regression",
+      "ml_second_probability": 0.02380996,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "contradictory_evidence_present"
+      ],
+      "title": "Deployment context is missing while authentication failures rise"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "saturation-and-dependency-overlap",
+      "class_probabilities": {
+        "authentication_failure": 0.0,
+        "dependency_failure": 0.36333333,
+        "deployment_regression": 0.0,
+        "infrastructure_saturation": 0.63666667,
+        "network_degradation": 0.0,
+        "unknown": 0.0
+      },
+      "classifiers_agree": true,
+      "competing_signals": [
+        "infrastructure_saturation",
+        "dependency_failure"
+      ],
+      "contradictions": [
+        "A failing dependency may be creating workload buildup and resource saturation."
+      ],
+      "deterministic_category": "infrastructure_saturation",
+      "deterministic_confidence": 0.85,
+      "deterministic_matched_rules": [
+        "infrastructure-saturation-001",
+        "dependency-failure-001"
+      ],
+      "ml_category": "infrastructure_saturation",
+      "ml_confidence": 0.63666667,
+      "ml_probability_margin": 0.27333334,
+      "ml_second_category": "dependency_failure",
+      "ml_second_probability": 0.36333333,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "low_ml_confidence",
+        "multiple_deterministic_rules_matched",
+        "contradictory_evidence_present"
+      ],
+      "title": "Resource saturation and dependency errors appear together"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "widespread-errors-without-dominant-pattern",
+      "class_probabilities": {
+        "authentication_failure": 0.05888889,
+        "dependency_failure": 0.16772222,
+        "deployment_regression": 0.21687302,
+        "infrastructure_saturation": 0.11519841,
+        "network_degradation": 0.35131746,
+        "unknown": 0.09
+      },
+      "classifiers_agree": false,
+      "competing_signals": [
+        "unknown",
+        "dependency_failure",
+        "network_degradation"
+      ],
+      "contradictions": [
+        "Impact is severe, but category-specific thresholds remain just below limits."
+      ],
+      "deterministic_category": "unknown",
+      "deterministic_confidence": 0.0,
+      "deterministic_matched_rules": [],
+      "ml_category": "network_degradation",
+      "ml_confidence": 0.35131746,
+      "ml_probability_margin": 0.13444444000000003,
+      "ml_second_category": "deployment_regression",
+      "ml_second_probability": 0.21687302,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "classifier_disagreement",
+        "low_ml_confidence",
+        "low_ml_probability_margin",
+        "contradictory_evidence_present"
+      ],
+      "title": "Widespread server errors lack a dominant diagnostic signature"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "near-threshold-multi-signal-incident",
+      "class_probabilities": {
+        "authentication_failure": 0.06561111,
+        "dependency_failure": 0.02166667,
+        "deployment_regression": 0.18933333,
+        "infrastructure_saturation": 0.44227778,
+        "network_degradation": 0.27,
+        "unknown": 0.01111111
+      },
+      "classifiers_agree": false,
+      "competing_signals": [
+        "unknown",
+        "deployment_regression",
+        "authentication_failure",
+        "infrastructure_saturation",
+        "dependency_failure",
+        "network_degradation"
+      ],
+      "contradictions": [
+        "Tiny measurement changes could activate several deterministic rules."
+      ],
+      "deterministic_category": "unknown",
+      "deterministic_confidence": 0.0,
+      "deterministic_matched_rules": [],
+      "ml_category": "infrastructure_saturation",
+      "ml_confidence": 0.44227778,
+      "ml_probability_margin": 0.17227778,
+      "ml_second_category": "network_degradation",
+      "ml_second_probability": 0.27,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "classifier_disagreement",
+        "low_ml_confidence",
+        "low_ml_probability_margin",
+        "contradictory_evidence_present"
+      ],
+      "title": "Several signals sit immediately below deterministic thresholds"
+    },
+    {
+      "authority_boundary": "Classifier outputs are diagnostic evidence only. They cannot authorize or execute an action.",
+      "case_id": "isolated-noisy-network-spike",
+      "class_probabilities": {
+        "authentication_failure": 0.0,
+        "dependency_failure": 0.0,
+        "deployment_regression": 0.0,
+        "infrastructure_saturation": 0.0,
+        "network_degradation": 0.44611111,
+        "unknown": 0.55388889
+      },
+      "classifiers_agree": false,
+      "competing_signals": [
+        "network_degradation",
+        "unknown"
+      ],
+      "contradictions": [
+        "A single threshold crossing is unsupported by latency or user-impact evidence."
+      ],
+      "deterministic_category": "network_degradation",
+      "deterministic_confidence": 0.7,
+      "deterministic_matched_rules": [
+        "network-degradation-001"
+      ],
+      "ml_category": "unknown",
+      "ml_confidence": 0.55388889,
+      "ml_probability_margin": 0.10777777999999999,
+      "ml_second_category": "network_degradation",
+      "ml_second_probability": 0.44611111,
+      "requires_genai_review": true,
+      "review_triggers": [
+        "classifier_disagreement",
+        "low_ml_confidence",
+        "low_ml_probability_margin",
+        "contradictory_evidence_present"
+      ],
+      "title": "One noisy network measurement conflicts with otherwise normal telemetry"
+    }
+  ],
+  "summary": {
+    "case_count": 8,
+    "classifier_agreement_count": 3,
+    "classifier_disagreement_count": 5,
+    "genai_review_required_count": 8,
+    "low_ml_margin_count": 4,
+    "multiple_rule_match_count": 3
+  },
+  "threshold_tuning_performed": false,
+  "training_performed": false
+}

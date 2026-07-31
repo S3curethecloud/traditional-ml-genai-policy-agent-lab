@@ -1,0 +1,186 @@
+pack:
+  id: phase-3b-ambiguity-v1
+  title: Traditional ML and deterministic classifier ambiguity pack
+  purpose: >
+    Challenge the locked Phase 3 ML model and the Phase 1 deterministic
+    classifier with overlapping, contradictory, incomplete, and near-threshold
+    incidents. These cases must never be used for training or model selection.
+  prohibited_uses:
+    - model_training
+    - hyperparameter_tuning
+    - model_selection
+    - threshold_optimization
+    - synthetic_dataset_generation
+  cases:
+    - id: recent-deployment-with-authentication-signals
+      title: Recent deployment and strong authentication signals
+      features:
+        login_failure_rate: 0.27
+        token_validation_error_rate: 0.19
+        http_5xx_rate: 0.11
+        latency_p95_ms: 1850.0
+        cpu_utilization_percent: 51.0
+        memory_utilization_percent: 59.0
+        dependency_error_rate: 0.02
+        network_packet_loss_percent: 0.4
+        deployment_age_minutes: 12
+        affected_user_count: 2400
+        regions_affected: 2
+      competing_signals:
+        - deployment_regression
+        - authentication_failure
+      contradictions:
+        - Authentication-specific errors are stronger than the generic deployment signal.
+      expected_review_reason: Multiple plausible root causes are present.
+
+    - id: dependency-errors-with-network-loss
+      title: Dependency failures coexist with network degradation
+      features:
+        login_failure_rate: 0.08
+        token_validation_error_rate: 0.01
+        http_5xx_rate: 0.24
+        latency_p95_ms: 5100.0
+        cpu_utilization_percent: 62.0
+        memory_utilization_percent: 68.0
+        dependency_error_rate: 0.31
+        network_packet_loss_percent: 6.8
+        deployment_age_minutes: null
+        affected_user_count: 3700
+        regions_affected: 3
+      competing_signals:
+        - dependency_failure
+        - network_degradation
+      contradictions:
+        - Network loss could be causing the downstream dependency errors.
+      expected_review_reason: Causal direction cannot be determined from telemetry alone.
+
+    - id: deployment-just-outside-rule-window
+      title: Failure begins just outside the deterministic deployment window
+      features:
+        login_failure_rate: 0.21
+        token_validation_error_rate: 0.03
+        http_5xx_rate: 0.17
+        latency_p95_ms: 2300.0
+        cpu_utilization_percent: 64.0
+        memory_utilization_percent: 71.0
+        dependency_error_rate: 0.04
+        network_packet_loss_percent: 0.7
+        deployment_age_minutes: 31
+        affected_user_count: 1700
+        regions_affected: 2
+      competing_signals:
+        - deployment_regression
+        - unknown
+      contradictions:
+        - The deployment occurred one minute outside the fixed rule threshold.
+      expected_review_reason: A hard threshold may create an artificial classification boundary.
+
+    - id: missing-deployment-context-with-auth-failures
+      title: Deployment context is missing while authentication failures rise
+      features:
+        login_failure_rate: 0.23
+        token_validation_error_rate: 0.13
+        http_5xx_rate: 0.07
+        latency_p95_ms: 1450.0
+        cpu_utilization_percent: 48.0
+        memory_utilization_percent: 53.0
+        dependency_error_rate: 0.02
+        network_packet_loss_percent: 0.3
+        deployment_age_minutes: null
+        affected_user_count: 950
+        regions_affected: 1
+      competing_signals:
+        - authentication_failure
+        - deployment_regression
+      contradictions:
+        - Missing deployment data prevents ruling out a recent configuration change.
+      expected_review_reason: Missing context limits causal confidence.
+
+    - id: saturation-and-dependency-overlap
+      title: Resource saturation and dependency errors appear together
+      features:
+        login_failure_rate: 0.09
+        token_validation_error_rate: 0.02
+        http_5xx_rate: 0.29
+        latency_p95_ms: 6400.0
+        cpu_utilization_percent: 96.0
+        memory_utilization_percent: 93.0
+        dependency_error_rate: 0.22
+        network_packet_loss_percent: 0.8
+        deployment_age_minutes: null
+        affected_user_count: 8600
+        regions_affected: 2
+      competing_signals:
+        - infrastructure_saturation
+        - dependency_failure
+      contradictions:
+        - A failing dependency may be creating workload buildup and resource saturation.
+      expected_review_reason: Multiple matched conditions do not establish the primary cause.
+
+    - id: widespread-errors-without-dominant-pattern
+      title: Widespread server errors lack a dominant diagnostic signature
+      features:
+        login_failure_rate: 0.09
+        token_validation_error_rate: 0.02
+        http_5xx_rate: 0.38
+        latency_p95_ms: 3200.0
+        cpu_utilization_percent: 78.0
+        memory_utilization_percent: 81.0
+        dependency_error_rate: 0.07
+        network_packet_loss_percent: 2.7
+        deployment_age_minutes: null
+        affected_user_count: 11000
+        regions_affected: 4
+      competing_signals:
+        - unknown
+        - dependency_failure
+        - network_degradation
+      contradictions:
+        - Impact is severe, but category-specific thresholds remain just below limits.
+      expected_review_reason: High severity does not imply a known root-cause category.
+
+    - id: near-threshold-multi-signal-incident
+      title: Several signals sit immediately below deterministic thresholds
+      features:
+        login_failure_rate: 0.099
+        token_validation_error_rate: 0.049
+        http_5xx_rate: 0.079
+        latency_p95_ms: 1995.0
+        cpu_utilization_percent: 89.9
+        memory_utilization_percent: 89.8
+        dependency_error_rate: 0.079
+        network_packet_loss_percent: 2.99
+        deployment_age_minutes: 29
+        affected_user_count: 980
+        regions_affected: 1
+      competing_signals:
+        - unknown
+        - deployment_regression
+        - authentication_failure
+        - infrastructure_saturation
+        - dependency_failure
+        - network_degradation
+      contradictions:
+        - Tiny measurement changes could activate several deterministic rules.
+      expected_review_reason: The incident is highly sensitive to measurement noise.
+
+    - id: isolated-noisy-network-spike
+      title: One noisy network measurement conflicts with otherwise normal telemetry
+      features:
+        login_failure_rate: 0.02
+        token_validation_error_rate: 0.01
+        http_5xx_rate: 0.02
+        latency_p95_ms: 410.0
+        cpu_utilization_percent: 44.0
+        memory_utilization_percent: 49.0
+        dependency_error_rate: 0.01
+        network_packet_loss_percent: 3.2
+        deployment_age_minutes: null
+        affected_user_count: 18
+        regions_affected: 1
+      competing_signals:
+        - network_degradation
+        - unknown
+      contradictions:
+        - A single threshold crossing is unsupported by latency or user-impact evidence.
+      expected_review_reason: One noisy feature should not automatically establish a diagnosis.
