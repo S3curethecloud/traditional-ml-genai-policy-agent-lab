@@ -1,0 +1,172 @@
+{
+  "phase": "phase-06",
+  "policy_version": "deterministic-policy-v1",
+  "results": [
+    {
+      "case_id": "recent-deployment-with-authentication-signals",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "62c9e5a6ee8ca2f5f35ed2b80b28ca5d62f6fc4e374ea0b18f8cead45f922af7",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "dependency-errors-with-network-loss",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "deployment-just-outside-rule-window",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "bfd97e177a3085e4f9d80ab7bbb6f2b0fb5804ff36d4eae54c5667d493b2ebe0",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "missing-deployment-context-with-auth-failures",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "21095c921132ac1636b891176614b981d0ff9f14166d158446aa20361e1ea9cb",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "saturation-and-dependency-overlap",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "a4a49202c73f07097cae17e5776f9b00604cd3ae5ebbb019a11c471ea709ba86",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "widespread-errors-without-dominant-pattern",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "92949008aa6ae6ad91c849e1019fda18387c67e2c22b29a4717324f1a1c28529",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "near-threshold-multi-signal-incident",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "a43921734a4c256b18b73275ec1d536e6d14db09cb4d3c8a0a6cb26f69301e64",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    },
+    {
+      "case_id": "isolated-noisy-network-spike",
+      "policy_evaluation": {
+        "authority_boundary": "Policy evaluation authorizes or rejects a typed request. It does not execute the tool.",
+        "decision": "ALLOW",
+        "execution_performed": false,
+        "policy_version": "deterministic-policy-v1",
+        "reasons": [
+          {
+            "message": "All deterministic policy checks passed.",
+            "rule_id": "POL-ALLOW-001"
+          }
+        ],
+        "request_fingerprint": "c4ae155526970d34ff0edc7517cbfb20f3afae29d25d299fe8cb44bd5b9e954d",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      "recommended_tool": "inspect_incident_telemetry",
+      "synthesis_disposition": "REQUEST_MORE_EVIDENCE"
+    }
+  ],
+  "security_properties": {
+    "deny_precedence_over_escalate": true,
+    "deterministic_policy_evaluated": true,
+    "escalate_precedence_over_allow": true,
+    "genai_authorized_execution": false,
+    "request_fingerprint_recorded": true,
+    "tool_execution_performed": false
+  },
+  "summary": {
+    "allow_count": 8,
+    "case_count": 8,
+    "deny_count": 0,
+    "escalate_count": 0
+  }
+}
