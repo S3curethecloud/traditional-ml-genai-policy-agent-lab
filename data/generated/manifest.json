@@ -1,0 +1,47 @@
+{
+  "dataset_version": "synthetic-incidents-v1",
+  "files": {
+    "test": {
+      "class_distribution": {
+        "authentication_failure": 15,
+        "dependency_failure": 15,
+        "deployment_regression": 15,
+        "infrastructure_saturation": 15,
+        "network_degradation": 15,
+        "unknown": 15
+      },
+      "path": "test.csv",
+      "record_count": 90,
+      "sha256": "cb3e859c7de749ffd4f160c609c1056b459f689441bb6ec35ce4099ccaeb3d3f"
+    },
+    "train": {
+      "class_distribution": {
+        "authentication_failure": 70,
+        "dependency_failure": 70,
+        "deployment_regression": 70,
+        "infrastructure_saturation": 70,
+        "network_degradation": 70,
+        "unknown": 70
+      },
+      "path": "train.csv",
+      "record_count": 420,
+      "sha256": "ff04e40cc6658529ba6c2dc40beeb1cc49c4ae8b39a1828d641d414fc0350991"
+    },
+    "validation": {
+      "class_distribution": {
+        "authentication_failure": 15,
+        "dependency_failure": 15,
+        "deployment_regression": 15,
+        "infrastructure_saturation": 15,
+        "network_degradation": 15,
+        "unknown": 15
+      },
+      "path": "validation.csv",
+      "record_count": 90,
+      "sha256": "f5063b088eb21db124416a932f982ecd2cf0fd8e1e742f47d5bf92c57fca3299"
+    }
+  },
+  "random_seed": 42,
+  "records_per_category": 100,
+  "total_record_count": 600
+}
