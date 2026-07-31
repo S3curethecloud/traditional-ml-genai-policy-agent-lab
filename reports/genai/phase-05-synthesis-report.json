@@ -1,0 +1,670 @@
+{
+  "live_model_called": false,
+  "phase": "phase-05",
+  "provider": "deterministic-tutorial-provider-v1",
+  "provider_role": "Deterministic test double for validating the GenAI evidence contract.",
+  "results": [
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "recent-deployment-with-authentication-signals",
+      "citations": [
+        "[runbook-identity-token-validation]",
+        "[incident-auth-key-mismatch-2026-06]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.865714,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Authentication-specific errors are stronger than the generic deployment signal."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "deployment_regression",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            },
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            }
+          ]
+        },
+        {
+          "confidence": 0.715714,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Authentication-specific errors are stronger than the generic deployment signal."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "authentication_failure",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Authorized evidence is relevant to authentication failure."
+            },
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to authentication failure."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "dependency-errors-with-network-loss",
+      "citations": [
+        "[runbook-dependency-failure]",
+        "[deployment-identity-api-4-3-1]",
+        "[runbook-network-degradation]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.513889,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Network loss could be causing the downstream dependency errors."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "dependency_failure",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to dependency failure."
+            },
+            {
+              "citation": "[deployment-identity-api-4-3-1]",
+              "claim": "Authorized evidence is relevant to dependency failure."
+            }
+          ]
+        },
+        {
+          "confidence": 0.363889,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Network loss could be causing the downstream dependency errors."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "network_degradation",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            },
+            {
+              "citation": "[runbook-network-degradation]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "deployment-just-outside-rule-window",
+      "citations": [
+        "[runbook-deployment-regression]",
+        "[incident-auth-key-mismatch-2026-06]",
+        "[service-identity-api-ownership]",
+        "[runbook-dependency-failure]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.840333,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-deployment-regression]",
+              "claim": "The deployment occurred one minute outside the fixed rule threshold."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "deployment_regression",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-deployment-regression]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            },
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            }
+          ]
+        },
+        {
+          "confidence": 0.690333,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-deployment-regression]",
+              "claim": "The deployment occurred one minute outside the fixed rule threshold."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "unknown",
+          "supporting_evidence": [
+            {
+              "citation": "[service-identity-api-ownership]",
+              "claim": "Authorized evidence is relevant to unknown."
+            }
+          ]
+        },
+        {
+          "confidence": 0.540333,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-deployment-regression]",
+              "claim": "The deployment occurred one minute outside the fixed rule threshold."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "dependency_failure",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-deployment-regression]",
+              "claim": "Authorized evidence is relevant to dependency failure."
+            },
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to dependency failure."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "missing-deployment-context-with-auth-failures",
+      "citations": [
+        "[runbook-identity-token-validation]",
+        "[incident-auth-key-mismatch-2026-06]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.9,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Missing deployment data prevents ruling out a recent configuration change."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "authentication_failure",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Authorized evidence is relevant to authentication failure."
+            },
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to authentication failure."
+            }
+          ]
+        },
+        {
+          "confidence": 0.825523,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Missing deployment data prevents ruling out a recent configuration change."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "deployment_regression",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-identity-token-validation]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            },
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "saturation-and-dependency-overlap",
+      "citations": [
+        "[runbook-dependency-failure]",
+        "[incident-auth-key-mismatch-2026-06]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.636667,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "A failing dependency may be creating workload buildup and resource saturation."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "infrastructure_saturation",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to infrastructure saturation."
+            },
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to infrastructure saturation."
+            }
+          ]
+        },
+        {
+          "confidence": 0.486667,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "A failing dependency may be creating workload buildup and resource saturation."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "dependency_failure",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to dependency failure."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "widespread-errors-without-dominant-pattern",
+      "citations": [
+        "[runbook-dependency-failure]",
+        "[runbook-network-degradation]",
+        "[service-identity-api-ownership]",
+        "[runbook-deployment-regression]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.351317,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Impact is severe, but category-specific thresholds remain just below limits."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "network_degradation",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            },
+            {
+              "citation": "[runbook-network-degradation]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            }
+          ]
+        },
+        {
+          "confidence": 0.201317,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Impact is severe, but category-specific thresholds remain just below limits."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "unknown",
+          "supporting_evidence": [
+            {
+              "citation": "[service-identity-api-ownership]",
+              "claim": "Authorized evidence is relevant to unknown."
+            }
+          ]
+        },
+        {
+          "confidence": 0.1,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Impact is severe, but category-specific thresholds remain just below limits."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "deployment_regression",
+          "supporting_evidence": [
+            {
+              "citation": "[service-identity-api-ownership]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            },
+            {
+              "citation": "[runbook-deployment-regression]",
+              "claim": "Authorized evidence is relevant to deployment regression."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "near-threshold-multi-signal-incident",
+      "citations": [
+        "[incident-auth-key-mismatch-2026-06]",
+        "[runbook-dependency-failure]",
+        "[service-identity-api-ownership]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.442278,
+          "contradicting_evidence": [
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Tiny measurement changes could activate several deterministic rules."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "infrastructure_saturation",
+          "supporting_evidence": [
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Authorized evidence is relevant to infrastructure saturation."
+            },
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to infrastructure saturation."
+            }
+          ]
+        },
+        {
+          "confidence": 0.292278,
+          "contradicting_evidence": [
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Tiny measurement changes could activate several deterministic rules."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "unknown",
+          "supporting_evidence": [
+            {
+              "citation": "[service-identity-api-ownership]",
+              "claim": "Authorized evidence is relevant to unknown."
+            }
+          ]
+        },
+        {
+          "confidence": 0.142278,
+          "contradicting_evidence": [
+            {
+              "citation": "[incident-auth-key-mismatch-2026-06]",
+              "claim": "Tiny measurement changes could activate several deterministic rules."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "network_degradation",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-dependency-failure]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    },
+    {
+      "authority_boundary": "GenAI output is evidence and recommendation only. Deterministic policy must independently authorize any tool execution.",
+      "case_id": "isolated-noisy-network-spike",
+      "citations": [
+        "[service-identity-api-ownership]",
+        "[runbook-network-degradation]",
+        "[incident-network-noise-2026-05]"
+      ],
+      "disposition": "REQUEST_MORE_EVIDENCE",
+      "hypotheses": [
+        {
+          "confidence": 0.553889,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-network-degradation]",
+              "claim": "A single threshold crossing is unsupported by latency or user-impact evidence."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "unknown",
+          "supporting_evidence": [
+            {
+              "citation": "[service-identity-api-ownership]",
+              "claim": "Authorized evidence is relevant to unknown."
+            }
+          ]
+        },
+        {
+          "confidence": 0.403889,
+          "contradicting_evidence": [
+            {
+              "citation": "[runbook-network-degradation]",
+              "claim": "A single threshold crossing is unsupported by latency or user-impact evidence."
+            }
+          ],
+          "missing_evidence": [
+            "Current telemetry time series",
+            "Independent confirmation of causal order"
+          ],
+          "name": "network_degradation",
+          "supporting_evidence": [
+            {
+              "citation": "[runbook-network-degradation]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            },
+            {
+              "citation": "[incident-network-noise-2026-05]",
+              "claim": "Authorized evidence is relevant to network degradation."
+            }
+          ]
+        }
+      ],
+      "ignored_untrusted_instructions": [],
+      "prompt_version": "incident-evidence-synthesis-v1",
+      "provider_name": "deterministic-tutorial-provider-v1",
+      "recommended_next_step": "Collect additional read-only diagnostic evidence before selecting a root cause.",
+      "requires_human_review": true,
+      "summary": "Classifier evidence and authorized operational documents indicate multiple plausible causes. The result remains diagnostic evidence.",
+      "tool_recommendation": {
+        "arguments": {
+          "environment": "production",
+          "service": "identity-api"
+        },
+        "rationale": "Classifier disagreement or contradictory evidence requires additional telemetry.",
+        "risk": "read_only",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    }
+  ],
+  "security_properties": {
+    "authorization_decision_performed": false,
+    "authorized_evidence_only": true,
+    "citations_validated": true,
+    "denied_content_available_to_provider": false,
+    "prompt_injection_documents_ignored": true,
+    "tool_execution_performed": false
+  },
+  "summary": {
+    "abstain_count": 0,
+    "case_count": 8,
+    "human_review_count": 8,
+    "recommend_count": 0,
+    "request_more_evidence_count": 8
+  }
+}
