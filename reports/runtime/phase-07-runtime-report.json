@@ -1,0 +1,127 @@
+{
+  "authorized_execution": {
+    "audit_events": [
+      {
+        "detail": "Runtime request received.",
+        "event_type": "runtime_request_received",
+        "idempotency_key": "phase-07-dependency-network-v1",
+        "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+        "status": "REJECTED",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      {
+        "detail": "ALLOW decision, fingerprint, tool, risk, and arguments validated.",
+        "event_type": "runtime_policy_binding_validated",
+        "idempotency_key": "phase-07-dependency-network-v1",
+        "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+        "status": "SUCCEEDED",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      {
+        "detail": "Execution attempt 1 started.",
+        "event_type": "runtime_execution_attempt",
+        "idempotency_key": "phase-07-dependency-network-v1",
+        "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+        "status": "SUCCEEDED",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      {
+        "detail": "Tool handler completed successfully.",
+        "event_type": "runtime_execution_succeeded",
+        "idempotency_key": "phase-07-dependency-network-v1",
+        "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+        "status": "SUCCEEDED",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    ],
+    "authority_boundary": "The runtime executed a request authorized by deterministic policy. It did not create or expand authority.",
+    "error": null,
+    "execution_attempted": true,
+    "idempotency_key": "phase-07-dependency-network-v1",
+    "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+    "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+    "result": {
+      "data": {
+        "dry_run": false,
+        "environment": "production",
+        "http_5xx_rate": 0.17,
+        "latency_p95_ms": 2310,
+        "service": "identity-api",
+        "source": "synthetic_tutorial_telemetry",
+        "token_validation_error_rate": 0.13,
+        "window": "last_15_minutes"
+      },
+      "handler_version": "inspect-telemetry-v1",
+      "side_effects_performed": false,
+      "tool_name": "inspect_incident_telemetry"
+    },
+    "runtime_version": "isolated-tool-runtime-v1",
+    "status": "SUCCEEDED",
+    "tool_name": "inspect_incident_telemetry"
+  },
+  "phase": "phase-07",
+  "replay_attempt": {
+    "audit_events": [
+      {
+        "detail": "Runtime request received.",
+        "event_type": "runtime_request_received",
+        "idempotency_key": "phase-07-dependency-network-v1",
+        "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+        "status": "REJECTED",
+        "tool_name": "inspect_incident_telemetry"
+      },
+      {
+        "detail": "Replay blocked by idempotency protection.",
+        "event_type": "runtime_replay_blocked",
+        "idempotency_key": "phase-07-dependency-network-v1",
+        "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+        "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+        "status": "REPLAYED",
+        "tool_name": "inspect_incident_telemetry"
+      }
+    ],
+    "authority_boundary": "The runtime executes only policy-bound requests and does not grant authority.",
+    "error": {
+      "code": "IDEMPOTENCY_KEY_REUSED",
+      "message": "Idempotency key was previously used. The handler was not executed again.",
+      "retryable": false
+    },
+    "execution_attempted": false,
+    "idempotency_key": "phase-07-dependency-network-v1",
+    "policy_fingerprint": "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+    "request_id": "08ecf55d-672a-41ea-b092-c84cb899b02e",
+    "result": {
+      "data": {
+        "dry_run": false,
+        "environment": "production",
+        "http_5xx_rate": 0.17,
+        "latency_p95_ms": 2310,
+        "service": "identity-api",
+        "source": "synthetic_tutorial_telemetry",
+        "token_validation_error_rate": 0.13,
+        "window": "last_15_minutes"
+      },
+      "handler_version": "inspect-telemetry-v1",
+      "side_effects_performed": false,
+      "tool_name": "inspect_incident_telemetry"
+    },
+    "runtime_version": "isolated-tool-runtime-v1",
+    "status": "REPLAYED",
+    "tool_name": "inspect_incident_telemetry"
+  },
+  "security_properties": {
+    "allow_decision_required": true,
+    "argument_schema_revalidated": true,
+    "direct_genai_tool_path": false,
+    "idempotency_enforced": true,
+    "policy_fingerprint_recomputed": true,
+    "production_side_effects_performed": false,
+    "runtime_execution_isolated": true,
+    "timeout_enforced": true
+  }
+}
