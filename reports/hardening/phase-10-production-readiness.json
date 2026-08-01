@@ -1,0 +1,174 @@
+{
+  "admission_controls": {
+    "first_concurrency_slot_acquired": true,
+    "rate_limit_results": [
+      true,
+      true,
+      false
+    ],
+    "rate_limit_third_request_blocked": true,
+    "second_concurrency_error": "CONCURRENCY_LIMIT_EXCEEDED",
+    "second_concurrency_slot_acquired": false
+  },
+  "circuit_breaker": {
+    "allowed_after_recovery": true,
+    "allowed_before_recovery": false,
+    "state_after_recovery": "HALF_OPEN"
+  },
+  "configuration": {
+    "configuration_sha256": "ff427820f9d3ef75d182450186b4004f3dca58f93af1d23e1b32b616919f1d97",
+    "configuration_version": "production-hardening-v1",
+    "environment": "production",
+    "evaluation_version": "workflow-evaluation-v1",
+    "model_version": "v1",
+    "orchestrator_version": "governed-orchestrator-v1",
+    "policy_version": "deterministic-policy-v1",
+    "prompt_version": "incident-evidence-synthesis-v1",
+    "runtime_version": "isolated-tool-runtime-v1"
+  },
+  "deployment_readiness": {
+    "authority_boundary": "Readiness evaluation may block promotion. It cannot deploy, change policy decisions, or waive failed release controls.",
+    "checks": [
+      {
+        "check_name": "production_configuration",
+        "explanation": "Configuration targets production.",
+        "passed": true
+      },
+      {
+        "check_name": "release_gate",
+        "explanation": "Phase 9 release gate must pass.",
+        "passed": true
+      },
+      {
+        "check_name": "minimum_evidence_artifacts",
+        "explanation": "Evidence bundle contains the minimum required artifacts.",
+        "passed": true
+      },
+      {
+        "check_name": "evidence_digest_binding",
+        "explanation": "Attestation is bound to the evaluated release evidence.",
+        "passed": true
+      },
+      {
+        "check_name": "signed_attestation",
+        "explanation": "Release attestation signature is valid.",
+        "passed": true
+      },
+      {
+        "check_name": "release_identifier_binding",
+        "explanation": "Attestation release ID matches the promotion request.",
+        "passed": true
+      },
+      {
+        "check_name": "promotion_source",
+        "explanation": "Promotion source is explicitly allowed.",
+        "passed": true
+      },
+      {
+        "check_name": "promotion_target",
+        "explanation": "Promotion target is explicitly allowed.",
+        "passed": true
+      },
+      {
+        "check_name": "rollback_plan",
+        "explanation": "A rollback plan is recorded.",
+        "passed": true
+      },
+      {
+        "check_name": "version_pinning",
+        "explanation": "Model, prompt, policy, runtime, orchestrator, and evaluation versions are pinned.",
+        "passed": true
+      }
+    ],
+    "failed_count": 0,
+    "hardening_version": "production-hardening-v1",
+    "passed_count": 10,
+    "release_id": "phase-10-tutorial-release",
+    "status": "READY"
+  },
+  "failure_injection": [
+    {
+      "authority_expanded": false,
+      "explanation": "Provider timeout was surfaced through a structured failure boundary.",
+      "failure_mode": "PROVIDER_TIMEOUT",
+      "failure_observed": true,
+      "fallback_used": false,
+      "sensitive_details_exposed": false
+    },
+    {
+      "authority_expanded": false,
+      "explanation": "Provider failure was sanitized and did not authorize runtime execution.",
+      "failure_mode": "PROVIDER_FAILURE",
+      "failure_observed": true,
+      "fallback_used": false,
+      "sensitive_details_exposed": false
+    },
+    {
+      "authority_expanded": false,
+      "explanation": "Retrieval failure prevented evidence synthesis and tool execution.",
+      "failure_mode": "RETRIEVAL_UNAVAILABLE",
+      "failure_observed": true,
+      "fallback_used": false,
+      "sensitive_details_exposed": false
+    },
+    {
+      "authority_expanded": false,
+      "explanation": "Runtime timeout retained the policy and audit evidence without repeating a mutation.",
+      "failure_mode": "RUNTIME_TIMEOUT",
+      "failure_observed": true,
+      "fallback_used": false,
+      "sensitive_details_exposed": false
+    }
+  ],
+  "phase": "phase-10",
+  "promotion_evaluation": {
+    "decision": "APPROVE",
+    "evidence_sha256": "136675cbd4f99fb1f3425ee0e110af030e7c3d984ef46b4f3e0b1aef04ced4f5",
+    "readiness_status": "READY",
+    "reasons": [
+      "All production-readiness checks passed."
+    ],
+    "release_id": "phase-10-tutorial-release",
+    "source_environment": "staging",
+    "target_environment": "production"
+  },
+  "redacted_log_event": {
+    "attributes": {
+      "authorization": "[REDACTED]",
+      "nested": {
+        "api_key": "[REDACTED]",
+        "status": "validated"
+      },
+      "release_id": "phase-10-tutorial-release"
+    },
+    "event_type": "release_validation",
+    "severity": "INFO",
+    "trace_id": "trace-phase-10",
+    "workflow_id": "release-phase-10"
+  },
+  "release_attestation": {
+    "configuration_sha256": "ff427820f9d3ef75d182450186b4004f3dca58f93af1d23e1b32b616919f1d97",
+    "evidence_sha256": "136675cbd4f99fb1f3425ee0e110af030e7c3d984ef46b4f3e0b1aef04ced4f5",
+    "release_id": "phase-10-tutorial-release",
+    "rollback_plan_id": "rollback-phase-10-v1",
+    "signature": "e58a3840e0827b7083ca40f7fbafa168ec36556a1c093e5c5a0813c9ab91d770",
+    "signature_algorithm": "HMAC-SHA256",
+    "signer_id": "tutorial-ci-release-identity",
+    "source_environment": "staging",
+    "target_environment": "production"
+  },
+  "security_properties": {
+    "circuit_breaker_enforced": true,
+    "concurrency_limiting_enforced": true,
+    "hardening_expands_authority": false,
+    "inline_secrets_stored": false,
+    "production_side_effects_performed": false,
+    "promotion_executes_deployment": false,
+    "rate_limiting_enforced": true,
+    "release_evidence_verified": true,
+    "rollback_plan_required": true,
+    "signed_attestation_required": true,
+    "structured_logging_redacted": true,
+    "version_pinning_required": true
+  }
+}

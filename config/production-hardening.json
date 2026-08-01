@@ -1,0 +1,39 @@
+{
+  "configuration_version": "production-hardening-v1",
+  "environment": "production",
+  "model_provider": "deterministic-tutorial-provider-v1",
+  "model_name": "tutorial-evidence-synthesis",
+  "model_version": "v1",
+  "prompt_version": "incident-evidence-synthesis-v1",
+  "policy_version": "deterministic-policy-v1",
+  "runtime_version": "isolated-tool-runtime-v1",
+  "orchestrator_version": "governed-orchestrator-v1",
+  "evaluation_version": "workflow-evaluation-v1",
+  "request_timeout_seconds": 30.0,
+  "provider_timeout_seconds": 10.0,
+  "maximum_requests_per_window": 20,
+  "rate_limit_window_seconds": 60.0,
+  "maximum_concurrent_workflows": 4,
+  "circuit_breaker_failure_threshold": 3,
+  "circuit_breaker_recovery_seconds": 30.0,
+  "minimum_release_evidence_artifacts": 3,
+  "require_release_gate_pass": true,
+  "require_signed_attestation": true,
+  "require_rollback_plan": true,
+  "allowed_promotion_sources": [
+    "staging"
+  ],
+  "allowed_promotion_targets": [
+    "production"
+  ],
+  "secret_references": [
+    "env://RELEASE_ATTESTATION_KEY"
+  ],
+  "prohibited_inline_secret_fields": [
+    "api_key",
+    "password",
+    "private_key",
+    "secret",
+    "token"
+  ]
+}
