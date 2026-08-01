@@ -1,0 +1,39 @@
+{
+  "profile_id": "incident-agent-access-readiness-v1",
+  "controls": [
+    {
+      "control_id": "least_privilege",
+      "implemented": true,
+      "detail": "Operational roles receive only explicitly scoped permissions."
+    },
+    {
+      "control_id": "role_separation",
+      "implemented": true,
+      "detail": "Service, security, and release responsibilities remain separated."
+    },
+    {
+      "control_id": "time_bound_privilege",
+      "implemented": true,
+      "detail": "Elevated access requires bounded duration and explicit expiration."
+    },
+    {
+      "control_id": "approval_binding",
+      "implemented": true,
+      "detail": "Approvals bind actor, scope, environment, release, and evidence."
+    },
+    {
+      "control_id": "audit_logging",
+      "implemented": true,
+      "detail": "Operational and privileged actions require immutable audit evidence."
+    },
+    {
+      "control_id": "break_glass_review",
+      "implemented": true,
+      "detail": "Emergency access requires retrospective security and service-owner review."
+    }
+  ],
+  "credentials_created": false,
+  "access_granted": false,
+  "production_roles_assigned": false,
+  "break_glass_access_activated": false
+}

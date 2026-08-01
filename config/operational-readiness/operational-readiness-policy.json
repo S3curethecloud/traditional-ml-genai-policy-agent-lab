@@ -1,0 +1,54 @@
+{
+  "policy_version": "operational-readiness-policy-v1",
+  "platform_contract_version": "incident-agent-platform-v1",
+  "minimum_check_pass_rate_percentage": 100.0,
+  "minimum_runbook_coverage_percentage": 100.0,
+  "minimum_owner_coverage_percentage": 100.0,
+  "minimum_evidence_coverage_percentage": 100.0,
+  "automatic_handoff_allowed": false,
+  "automatic_access_provisioning_allowed": false,
+  "automatic_owner_assignment_allowed": false,
+  "automatic_production_activation_allowed": false,
+  "required_operational_capabilities": [
+    "service_ownership",
+    "incident_response",
+    "security_escalation",
+    "release_management",
+    "slo_monitoring",
+    "audit_evidence",
+    "rollback_coordination",
+    "disaster_recovery"
+  ],
+  "required_runbooks": [
+    "service-degradation",
+    "authorization-violation",
+    "retrieval-outage",
+    "model-provider-outage",
+    "policy-service-outage",
+    "runtime-saturation",
+    "release-rollback",
+    "regional-recovery"
+  ],
+  "required_evidence_artifacts": [
+    "phase-16-security-validation-report",
+    "phase-17-domain-adaptation-report",
+    "phase-18-platform-acceptance-report",
+    "operations-ownership-model",
+    "operations-runbook-catalog"
+  ],
+  "required_support_tiers": [
+    "L1",
+    "L2",
+    "L3",
+    "SECURITY",
+    "RELEASE"
+  ],
+  "required_access_controls": [
+    "least_privilege",
+    "role_separation",
+    "time_bound_privilege",
+    "approval_binding",
+    "audit_logging",
+    "break_glass_review"
+  ]
+}

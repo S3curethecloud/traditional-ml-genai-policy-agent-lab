@@ -1,0 +1,89 @@
+{
+  "checklist_id": "phase-19-production-handoff-checklist",
+  "checks": [
+    {
+      "check_id": "phase-18-acceptance-approved",
+      "category": "acceptance",
+      "required": true,
+      "passed": true,
+      "evidence_id": "phase-18-platform-acceptance-report"
+    },
+    {
+      "check_id": "security-attestation-approved",
+      "category": "security",
+      "required": true,
+      "passed": true,
+      "evidence_id": "phase-16-security-validation-report"
+    },
+    {
+      "check_id": "domain-packs-validated",
+      "category": "domain",
+      "required": true,
+      "passed": true,
+      "evidence_id": "phase-17-domain-adaptation-report"
+    },
+    {
+      "check_id": "operational-owners-defined",
+      "category": "ownership",
+      "required": true,
+      "passed": true,
+      "evidence_id": "operations-ownership-model"
+    },
+    {
+      "check_id": "support-tiers-defined",
+      "category": "support",
+      "required": true,
+      "passed": true,
+      "evidence_id": "operations-ownership-model"
+    },
+    {
+      "check_id": "runbooks-complete",
+      "category": "runbooks",
+      "required": true,
+      "passed": true,
+      "evidence_id": "operations-runbook-catalog"
+    },
+    {
+      "check_id": "access-controls-defined",
+      "category": "access",
+      "required": true,
+      "passed": true,
+      "evidence_id": "access-readiness-profile"
+    },
+    {
+      "check_id": "slo-monitoring-defined",
+      "category": "monitoring",
+      "required": true,
+      "passed": true,
+      "evidence_id": "runtime-operations-policy"
+    },
+    {
+      "check_id": "rollback-path-defined",
+      "category": "release",
+      "required": true,
+      "passed": true,
+      "evidence_id": "release-rollback-runbook"
+    },
+    {
+      "check_id": "disaster-recovery-defined",
+      "category": "resilience",
+      "required": true,
+      "passed": true,
+      "evidence_id": "regional-recovery-runbook"
+    },
+    {
+      "check_id": "audit-retention-defined",
+      "category": "evidence",
+      "required": true,
+      "passed": true,
+      "evidence_id": "operations-evidence-policy"
+    },
+    {
+      "check_id": "manual-production-approval-required",
+      "category": "authority",
+      "required": true,
+      "passed": true,
+      "evidence_id": "operational-readiness-policy"
+    }
+  ]
+}

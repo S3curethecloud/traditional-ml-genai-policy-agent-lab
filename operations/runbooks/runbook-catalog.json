@@ -1,0 +1,69 @@
+{
+  "catalog_id": "incident-agent-runbook-catalog-v1",
+  "runbooks": [
+    {
+      "runbook_id": "service-degradation",
+      "owner_role": "platform_operations",
+      "trigger": "Availability or latency SLO degradation.",
+      "first_action": "Validate telemetry and current release correlation.",
+      "escalation_role": "incident_commander",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "authorization-violation",
+      "owner_role": "security_operations",
+      "trigger": "Unauthorized runtime or cross-tenant access signal.",
+      "first_action": "Preserve evidence and isolate the affected workflow.",
+      "escalation_role": "security_owner",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "retrieval-outage",
+      "owner_role": "platform_operations",
+      "trigger": "Permission-aware retrieval becomes unavailable.",
+      "first_action": "Stop evidence synthesis and verify safe abstention.",
+      "escalation_role": "ai_platform_engineering",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "model-provider-outage",
+      "owner_role": "ai_platform_engineering",
+      "trigger": "Approved model provider fails or exceeds timeout policy.",
+      "first_action": "Validate circuit-breaker state and controlled fallback eligibility.",
+      "escalation_role": "service_owner",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "policy-service-outage",
+      "owner_role": "security_operations",
+      "trigger": "Deterministic policy service is unavailable.",
+      "first_action": "Confirm fail-closed behavior and block runtime execution.",
+      "escalation_role": "security_owner",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "runtime-saturation",
+      "owner_role": "platform_operations",
+      "trigger": "Runtime concurrency or queue thresholds are exceeded.",
+      "first_action": "Stop new work and preserve existing workflow state.",
+      "escalation_role": "incident_commander",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "release-rollback",
+      "owner_role": "release_management",
+      "trigger": "Release gate failure or post-release regression.",
+      "first_action": "Pause progression and validate the approved rollback target.",
+      "escalation_role": "release_manager",
+      "production_mutation_allowed": false
+    },
+    {
+      "runbook_id": "regional-recovery",
+      "owner_role": "site_reliability_engineering",
+      "trigger": "Regional platform failure requiring recovery evaluation.",
+      "first_action": "Validate recovery evidence, RPO, RTO, and approval binding.",
+      "escalation_role": "service_owner",
+      "production_mutation_allowed": false
+    }
+  ]
+}

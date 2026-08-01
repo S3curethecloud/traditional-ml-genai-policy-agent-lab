@@ -1,0 +1,136 @@
+{
+  "model_id": "incident-agent-operational-ownership-v1",
+  "service": "traditional-ml-genai-policy-agent",
+  "capabilities": [
+    {
+      "capability": "service_ownership",
+      "accountable_role": "service_owner",
+      "responsible_role": "platform_operations",
+      "consulted_roles": [
+        "security_operations",
+        "ai_platform_engineering"
+      ],
+      "informed_roles": [
+        "release_management"
+      ]
+    },
+    {
+      "capability": "incident_response",
+      "accountable_role": "incident_commander",
+      "responsible_role": "platform_operations",
+      "consulted_roles": [
+        "service_owner",
+        "security_operations"
+      ],
+      "informed_roles": [
+        "release_management"
+      ]
+    },
+    {
+      "capability": "security_escalation",
+      "accountable_role": "security_owner",
+      "responsible_role": "security_operations",
+      "consulted_roles": [
+        "platform_operations",
+        "ai_platform_engineering"
+      ],
+      "informed_roles": [
+        "service_owner"
+      ]
+    },
+    {
+      "capability": "release_management",
+      "accountable_role": "release_manager",
+      "responsible_role": "release_management",
+      "consulted_roles": [
+        "platform_operations",
+        "security_operations"
+      ],
+      "informed_roles": [
+        "service_owner"
+      ]
+    },
+    {
+      "capability": "slo_monitoring",
+      "accountable_role": "service_owner",
+      "responsible_role": "platform_operations",
+      "consulted_roles": [
+        "site_reliability_engineering"
+      ],
+      "informed_roles": [
+        "release_management"
+      ]
+    },
+    {
+      "capability": "audit_evidence",
+      "accountable_role": "security_owner",
+      "responsible_role": "security_operations",
+      "consulted_roles": [
+        "platform_operations",
+        "compliance_assurance"
+      ],
+      "informed_roles": [
+        "service_owner"
+      ]
+    },
+    {
+      "capability": "rollback_coordination",
+      "accountable_role": "release_manager",
+      "responsible_role": "release_management",
+      "consulted_roles": [
+        "platform_operations",
+        "incident_commander"
+      ],
+      "informed_roles": [
+        "service_owner"
+      ]
+    },
+    {
+      "capability": "disaster_recovery",
+      "accountable_role": "service_owner",
+      "responsible_role": "site_reliability_engineering",
+      "consulted_roles": [
+        "platform_operations",
+        "security_operations"
+      ],
+      "informed_roles": [
+        "release_management"
+      ]
+    }
+  ],
+  "support_tiers": [
+    {
+      "tier": "L1",
+      "role": "service_desk",
+      "responsibility": "Intake, correlation, and initial triage.",
+      "may_execute_production_tools": false
+    },
+    {
+      "tier": "L2",
+      "role": "platform_operations",
+      "responsibility": "Runbook-guided diagnosis and read-only investigation.",
+      "may_execute_production_tools": false
+    },
+    {
+      "tier": "L3",
+      "role": "ai_platform_engineering",
+      "responsibility": "Platform defect diagnosis and engineering remediation planning.",
+      "may_execute_production_tools": false
+    },
+    {
+      "tier": "SECURITY",
+      "role": "security_operations",
+      "responsibility": "Security investigation, containment advice, and evidence review.",
+      "may_execute_production_tools": false
+    },
+    {
+      "tier": "RELEASE",
+      "role": "release_management",
+      "responsibility": "Approved promotion, pause, and rollback coordination.",
+      "may_execute_production_tools": false
+    }
+  ],
+  "automatic_owner_assignment": false,
+  "real_people_assigned": false,
+  "production_authority_transferred": false
+}
