@@ -1,0 +1,47 @@
+{
+  "policy_version": "domain-adaptation-policy-v1",
+  "platform_contract_version": "incident-agent-platform-v1",
+  "automatic_pack_activation_allowed": false,
+  "automatic_policy_mutation_allowed": false,
+  "automatic_tool_registration_allowed": false,
+  "production_changes_allowed": false,
+  "required_pack_sections": [
+    "metadata",
+    "domain",
+    "incident_taxonomy",
+    "evidence_sources",
+    "tool_catalog",
+    "policy_overlay",
+    "evaluation_profile",
+    "deployment_profile",
+    "authority_boundary"
+  ],
+  "allowed_capabilities": [
+    "classify_incident",
+    "estimate_severity",
+    "retrieve_authorized_evidence",
+    "synthesize_evidence",
+    "generate_hypotheses",
+    "propose_tool_request",
+    "evaluate_policy",
+    "execute_authorized_read_only_tool",
+    "require_human_approval",
+    "record_audit_evidence"
+  ],
+  "allowed_environments": [
+    "development",
+    "test",
+    "staging",
+    "production"
+  ],
+  "allowed_tool_risks": [
+    "READ_ONLY",
+    "LOW",
+    "MEDIUM",
+    "HIGH"
+  ],
+  "production_mutating_tools_require_human_approval": true,
+  "minimum_evaluation_cases": 4,
+  "minimum_required_evidence_sources": 2,
+  "minimum_required_incident_categories": 3
+}

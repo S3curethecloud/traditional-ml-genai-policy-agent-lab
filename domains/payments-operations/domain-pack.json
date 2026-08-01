@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "pack_id": "payments-operations-v1",
+    "pack_version": "1.0.0",
+    "platform_contract_version": "incident-agent-platform-v1",
+    "status": "CANDIDATE",
+    "owner": "payments-platform-operations"
+  },
+  "domain": {
+    "name": "payments-operations",
+    "description": "Governed diagnosis of payment-processing incidents without transaction mutation.",
+    "tenant_isolation_required": true,
+    "regulated_data": true,
+    "supported_capabilities": [
+      "classify_incident",
+      "estimate_severity",
+      "retrieve_authorized_evidence",
+      "synthesize_evidence",
+      "generate_hypotheses",
+      "propose_tool_request",
+      "evaluate_policy",
+      "execute_authorized_read_only_tool",
+      "require_human_approval",
+      "record_audit_evidence"
+    ]
+  },
+  "incident_taxonomy": {
+    "categories": [
+      {
+        "category_id": "authorization_decline_spike",
+        "display_name": "Authorization Decline Spike",
+        "default_severity": "SEV_2"
+      },
+      {
+        "category_id": "processor_dependency_failure",
+        "display_name": "Processor Dependency Failure",
+        "default_severity": "SEV_1"
+      },
+      {
+        "category_id": "settlement_delay",
+        "display_name": "Settlement Delay",
+        "default_severity": "SEV_2"
+      },
+      {
+        "category_id": "payment_api_latency",
+        "display_name": "Payment API Latency",
+        "default_severity": "SEV_2"
+      },
+      {
+        "category_id": "duplicate_transaction_risk",
+        "display_name": "Duplicate Transaction Risk",
+        "default_severity": "SEV_1"
+      }
+    ]
+  },
+  "evidence_sources": [
+    {
+      "source_id": "payments-runbooks",
+      "source_type": "runbook",
+      "tenant_scoped": true,
+      "required_roles": [
+        "payments_support_engineer",
+        "security_reviewer"
+      ]
+    },
+    {
+      "source_id": "processor-telemetry",
+      "source_type": "telemetry",
+      "tenant_scoped": true,
+      "required_roles": [
+        "payments_support_engineer",
+        "security_reviewer"
+      ]
+    },
+    {
+      "source_id": "payment-deployment-records",
+      "source_type": "deployment_record",
+      "tenant_scoped": true,
+      "required_roles": [
+        "payments_support_engineer",
+        "release_manager"
+      ]
+    }
+  ],
+  "tool_catalog": [
+    {
+      "tool_name": "get_processor_health",
+      "risk": "READ_ONLY",
+      "mutating": false,
+      "allowed_environments": [
+        "development",
+        "test",
+        "staging",
+        "production"
+      ],
+      "required_approval": false
+    },
+    {
+      "tool_name": "get_payment_error_summary",
+      "risk": "READ_ONLY",
+      "mutating": false,
+      "allowed_environments": [
+        "development",
+        "test",
+        "staging",
+        "production"
+      ],
+      "required_approval": false
+    },
+    {
+      "tool_name": "pause_payment_route",
+      "risk": "HIGH",
+      "mutating": true,
+      "allowed_environments": [
+        "development",
+        "test",
+        "staging",
+        "production"
+      ],
+      "required_approval": true
+    }
+  ],
+  "policy_overlay": {
+    "may_narrow_platform_policy": true,
+    "may_expand_platform_policy": false,
+    "deny_cross_tenant_access": true,
+    "deny_unapproved_production_mutation": true,
+    "deny_direct_genai_tool_execution": true
+  },
+  "evaluation_profile": {
+    "required_cases": [
+      "authorized-payment-diagnosis",
+      "cross-tenant-payment-denial",
+      "payment-prompt-injection",
+      "payment-insufficient-evidence",
+      "payment-policy-forgery",
+      "payment-tool-argument-tampering"
+    ],
+    "minimum_pass_rate_percentage": 100.0
+  },
+  "deployment_profile": {
+    "allowed_environments": [
+      "development",
+      "test",
+      "staging"
+    ],
+    "production_activation_requires_human_approval": true,
+    "automatic_activation": false
+  },
+  "authority_boundary": {
+    "domain_pack_can_execute_tools": false,
+    "domain_pack_can_modify_platform_policy": false,
+    "domain_pack_can_approve_exceptions": false,
+    "domain_pack_can_activate_itself": false
+  }
+}

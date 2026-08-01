@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "pack_id": "replace-with-domain-pack-id",
+    "pack_version": "1.0.0",
+    "platform_contract_version": "incident-agent-platform-v1",
+    "status": "DRAFT",
+    "owner": "replace-with-accountable-owner"
+  },
+  "domain": {
+    "name": "replace-with-domain-name",
+    "description": "Replace with a bounded domain description.",
+    "tenant_isolation_required": true,
+    "regulated_data": false,
+    "supported_capabilities": [
+      "classify_incident",
+      "estimate_severity",
+      "retrieve_authorized_evidence",
+      "synthesize_evidence",
+      "generate_hypotheses",
+      "propose_tool_request",
+      "evaluate_policy",
+      "require_human_approval",
+      "record_audit_evidence"
+    ]
+  },
+  "incident_taxonomy": {
+    "categories": [
+      {
+        "category_id": "replace-category-1",
+        "display_name": "Replace Category 1",
+        "default_severity": "SEV_3"
+      },
+      {
+        "category_id": "replace-category-2",
+        "display_name": "Replace Category 2",
+        "default_severity": "SEV_2"
+      },
+      {
+        "category_id": "replace-category-3",
+        "display_name": "Replace Category 3",
+        "default_severity": "SEV_1"
+      }
+    ]
+  },
+  "evidence_sources": [
+    {
+      "source_id": "replace-source-1",
+      "source_type": "runbook",
+      "tenant_scoped": true,
+      "required_roles": [
+        "support_engineer"
+      ]
+    },
+    {
+      "source_id": "replace-source-2",
+      "source_type": "telemetry",
+      "tenant_scoped": true,
+      "required_roles": [
+        "support_engineer"
+      ]
+    }
+  ],
+  "tool_catalog": [
+    {
+      "tool_name": "replace-read-only-tool",
+      "risk": "READ_ONLY",
+      "mutating": false,
+      "allowed_environments": [
+        "development",
+        "test",
+        "staging",
+        "production"
+      ],
+      "required_approval": false
+    }
+  ],
+  "policy_overlay": {
+    "may_narrow_platform_policy": true,
+    "may_expand_platform_policy": false,
+    "deny_cross_tenant_access": true,
+    "deny_unapproved_production_mutation": true,
+    "deny_direct_genai_tool_execution": true
+  },
+  "evaluation_profile": {
+    "required_cases": [
+      "normal-authorized-case",
+      "cross-tenant-denial-case",
+      "prompt-injection-case",
+      "insufficient-evidence-abstention-case"
+    ],
+    "minimum_pass_rate_percentage": 100.0
+  },
+  "deployment_profile": {
+    "allowed_environments": [
+      "development",
+      "test",
+      "staging"
+    ],
+    "production_activation_requires_human_approval": true,
+    "automatic_activation": false
+  },
+  "authority_boundary": {
+    "domain_pack_can_execute_tools": false,
+    "domain_pack_can_modify_platform_policy": false,
+    "domain_pack_can_approve_exceptions": false,
+    "domain_pack_can_activate_itself": false
+  }
+}

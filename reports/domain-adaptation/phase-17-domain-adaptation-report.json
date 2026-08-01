@@ -1,0 +1,557 @@
+{
+  "authority_boundary": "Domain packs may provide taxonomy, evidence, tool metadata, evaluation cases, and policy restrictions. They cannot execute tools, expand platform authority, approve exceptions, register themselves, or activate production.",
+  "automatic_pack_activation_performed": false,
+  "automatic_policy_mutation_performed": false,
+  "automatic_tool_registration_performed": false,
+  "comparison": {
+    "candidate_only_capabilities": [],
+    "candidate_pack_id": "payments-operations-v1",
+    "isolated_evidence_sources": true,
+    "isolated_taxonomies": true,
+    "reference_only_capabilities": [],
+    "reference_pack_id": "identity-operations-v1",
+    "shared_capabilities": [
+      "classify_incident",
+      "estimate_severity",
+      "evaluate_policy",
+      "execute_authorized_read_only_tool",
+      "generate_hypotheses",
+      "propose_tool_request",
+      "record_audit_evidence",
+      "require_human_approval",
+      "retrieve_authorized_evidence",
+      "synthesize_evidence"
+    ],
+    "shared_tool_names": []
+  },
+  "decision": "READY_FOR_INTEGRATION",
+  "packs": [
+    {
+      "allowed_deployment_environments": [
+        "development",
+        "test",
+        "staging",
+        "production"
+      ],
+      "automatic_activation": false,
+      "deny_cross_tenant_access": true,
+      "deny_direct_genai_tool_execution": true,
+      "deny_unapproved_production_mutation": true,
+      "description": "Governed diagnosis of enterprise identity-service incidents.",
+      "digest": "631bf2b7ce1ee15726fff8b5380ab3fe9d7feed0d1e095e08fb67130f6508849",
+      "domain_name": "identity-operations",
+      "domain_pack_can_activate_itself": false,
+      "domain_pack_can_approve_exceptions": false,
+      "domain_pack_can_execute_tools": false,
+      "domain_pack_can_modify_platform_policy": false,
+      "evidence_sources": [
+        {
+          "required_roles": [
+            "support_engineer",
+            "security_reviewer"
+          ],
+          "source_id": "identity-runbooks",
+          "source_type": "runbook",
+          "tenant_scoped": true
+        },
+        {
+          "required_roles": [
+            "support_engineer",
+            "security_reviewer"
+          ],
+          "source_id": "identity-telemetry",
+          "source_type": "telemetry",
+          "tenant_scoped": true
+        },
+        {
+          "required_roles": [
+            "support_engineer",
+            "release_manager"
+          ],
+          "source_id": "identity-deployment-records",
+          "source_type": "deployment_record",
+          "tenant_scoped": true
+        }
+      ],
+      "incident_categories": [
+        {
+          "category_id": "authentication_failure",
+          "default_severity": "SEV_2",
+          "display_name": "Authentication Failure"
+        },
+        {
+          "category_id": "deployment_regression",
+          "default_severity": "SEV_2",
+          "display_name": "Deployment Regression"
+        },
+        {
+          "category_id": "dependency_failure",
+          "default_severity": "SEV_2",
+          "display_name": "Dependency Failure"
+        },
+        {
+          "category_id": "infrastructure_saturation",
+          "default_severity": "SEV_2",
+          "display_name": "Infrastructure Saturation"
+        },
+        {
+          "category_id": "network_degradation",
+          "default_severity": "SEV_2",
+          "display_name": "Network Degradation"
+        }
+      ],
+      "may_expand_platform_policy": false,
+      "may_narrow_platform_policy": true,
+      "minimum_pass_rate_percentage": 100.0,
+      "owner": "identity-platform-operations",
+      "pack_id": "identity-operations-v1",
+      "pack_version": "1.0.0",
+      "platform_contract_version": "incident-agent-platform-v1",
+      "production_activation_requires_human_approval": true,
+      "regulated_data": true,
+      "required_evaluation_cases": [
+        "authorized-identity-diagnosis",
+        "cross-tenant-identity-denial",
+        "identity-prompt-injection",
+        "identity-insufficient-evidence",
+        "identity-policy-forgery",
+        "identity-tool-argument-tampering"
+      ],
+      "status": "REFERENCE",
+      "supported_capabilities": [
+        "classify_incident",
+        "estimate_severity",
+        "retrieve_authorized_evidence",
+        "synthesize_evidence",
+        "generate_hypotheses",
+        "propose_tool_request",
+        "evaluate_policy",
+        "execute_authorized_read_only_tool",
+        "require_human_approval",
+        "record_audit_evidence"
+      ],
+      "tenant_isolation_required": true,
+      "tools": [
+        {
+          "allowed_environments": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ],
+          "mutating": false,
+          "required_approval": false,
+          "risk": "READ_ONLY",
+          "tool_name": "get_service_health"
+        },
+        {
+          "allowed_environments": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ],
+          "mutating": false,
+          "required_approval": false,
+          "risk": "READ_ONLY",
+          "tool_name": "get_recent_deployments"
+        },
+        {
+          "allowed_environments": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ],
+          "mutating": true,
+          "required_approval": true,
+          "risk": "HIGH",
+          "tool_name": "restart_identity_service"
+        }
+      ]
+    },
+    {
+      "allowed_deployment_environments": [
+        "development",
+        "test",
+        "staging"
+      ],
+      "automatic_activation": false,
+      "deny_cross_tenant_access": true,
+      "deny_direct_genai_tool_execution": true,
+      "deny_unapproved_production_mutation": true,
+      "description": "Governed diagnosis of payment-processing incidents without transaction mutation.",
+      "digest": "73d049f5997e16154fbe313e1373b5e74bb1112c831104e40ab9297edefb7deb",
+      "domain_name": "payments-operations",
+      "domain_pack_can_activate_itself": false,
+      "domain_pack_can_approve_exceptions": false,
+      "domain_pack_can_execute_tools": false,
+      "domain_pack_can_modify_platform_policy": false,
+      "evidence_sources": [
+        {
+          "required_roles": [
+            "payments_support_engineer",
+            "security_reviewer"
+          ],
+          "source_id": "payments-runbooks",
+          "source_type": "runbook",
+          "tenant_scoped": true
+        },
+        {
+          "required_roles": [
+            "payments_support_engineer",
+            "security_reviewer"
+          ],
+          "source_id": "processor-telemetry",
+          "source_type": "telemetry",
+          "tenant_scoped": true
+        },
+        {
+          "required_roles": [
+            "payments_support_engineer",
+            "release_manager"
+          ],
+          "source_id": "payment-deployment-records",
+          "source_type": "deployment_record",
+          "tenant_scoped": true
+        }
+      ],
+      "incident_categories": [
+        {
+          "category_id": "authorization_decline_spike",
+          "default_severity": "SEV_2",
+          "display_name": "Authorization Decline Spike"
+        },
+        {
+          "category_id": "processor_dependency_failure",
+          "default_severity": "SEV_1",
+          "display_name": "Processor Dependency Failure"
+        },
+        {
+          "category_id": "settlement_delay",
+          "default_severity": "SEV_2",
+          "display_name": "Settlement Delay"
+        },
+        {
+          "category_id": "payment_api_latency",
+          "default_severity": "SEV_2",
+          "display_name": "Payment API Latency"
+        },
+        {
+          "category_id": "duplicate_transaction_risk",
+          "default_severity": "SEV_1",
+          "display_name": "Duplicate Transaction Risk"
+        }
+      ],
+      "may_expand_platform_policy": false,
+      "may_narrow_platform_policy": true,
+      "minimum_pass_rate_percentage": 100.0,
+      "owner": "payments-platform-operations",
+      "pack_id": "payments-operations-v1",
+      "pack_version": "1.0.0",
+      "platform_contract_version": "incident-agent-platform-v1",
+      "production_activation_requires_human_approval": true,
+      "regulated_data": true,
+      "required_evaluation_cases": [
+        "authorized-payment-diagnosis",
+        "cross-tenant-payment-denial",
+        "payment-prompt-injection",
+        "payment-insufficient-evidence",
+        "payment-policy-forgery",
+        "payment-tool-argument-tampering"
+      ],
+      "status": "CANDIDATE",
+      "supported_capabilities": [
+        "classify_incident",
+        "estimate_severity",
+        "retrieve_authorized_evidence",
+        "synthesize_evidence",
+        "generate_hypotheses",
+        "propose_tool_request",
+        "evaluate_policy",
+        "execute_authorized_read_only_tool",
+        "require_human_approval",
+        "record_audit_evidence"
+      ],
+      "tenant_isolation_required": true,
+      "tools": [
+        {
+          "allowed_environments": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ],
+          "mutating": false,
+          "required_approval": false,
+          "risk": "READ_ONLY",
+          "tool_name": "get_processor_health"
+        },
+        {
+          "allowed_environments": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ],
+          "mutating": false,
+          "required_approval": false,
+          "risk": "READ_ONLY",
+          "tool_name": "get_payment_error_summary"
+        },
+        {
+          "allowed_environments": [
+            "development",
+            "test",
+            "staging",
+            "production"
+          ],
+          "mutating": true,
+          "required_approval": true,
+          "risk": "HIGH",
+          "tool_name": "pause_payment_route"
+        }
+      ]
+    }
+  ],
+  "platform_contract_version": "incident-agent-platform-v1",
+  "policy_version": "domain-adaptation-policy-v1",
+  "production_changes_performed": false,
+  "reasons": [],
+  "validation_results": [
+    {
+      "digest": "631bf2b7ce1ee15726fff8b5380ab3fe9d7feed0d1e095e08fb67130f6508849",
+      "findings": [
+        {
+          "detail": "Domain pack must target the current platform contract.",
+          "passed": true,
+          "rule_id": "PLATFORM-CONTRACT"
+        },
+        {
+          "detail": "Domain capabilities must remain inside the platform allowlist.",
+          "passed": true,
+          "rule_id": "CAPABILITY-ALLOWLIST"
+        },
+        {
+          "detail": "Domain capabilities must be unique.",
+          "passed": true,
+          "rule_id": "CAPABILITY-UNIQUENESS"
+        },
+        {
+          "detail": "Domain must define the minimum incident taxonomy.",
+          "passed": true,
+          "rule_id": "MINIMUM-TAXONOMY"
+        },
+        {
+          "detail": "Incident category IDs must be unique.",
+          "passed": true,
+          "rule_id": "TAXONOMY-UNIQUENESS"
+        },
+        {
+          "detail": "Domain must define sufficient evidence sources.",
+          "passed": true,
+          "rule_id": "MINIMUM-EVIDENCE-SOURCES"
+        },
+        {
+          "detail": "Evidence source IDs must be unique.",
+          "passed": true,
+          "rule_id": "EVIDENCE-SOURCE-UNIQUENESS"
+        },
+        {
+          "detail": "Every domain evidence source must be tenant scoped.",
+          "passed": true,
+          "rule_id": "TENANT-SCOPED-EVIDENCE"
+        },
+        {
+          "detail": "Tool names must be unique within a domain pack.",
+          "passed": true,
+          "rule_id": "TOOL-UNIQUENESS"
+        },
+        {
+          "detail": "Tool risk levels must be platform recognized.",
+          "passed": true,
+          "rule_id": "TOOL-RISK-ALLOWLIST"
+        },
+        {
+          "detail": "Tool environments must be platform recognized.",
+          "passed": true,
+          "rule_id": "TOOL-ENVIRONMENT-ALLOWLIST"
+        },
+        {
+          "detail": "Every mutating tool must require approval.",
+          "passed": true,
+          "rule_id": "MUTATING-TOOL-APPROVAL"
+        },
+        {
+          "detail": "Domain policy may narrow but cannot expand platform policy.",
+          "passed": true,
+          "rule_id": "POLICY-NO-EXPANSION"
+        },
+        {
+          "detail": "Tenant isolation and cross-tenant denial are required.",
+          "passed": true,
+          "rule_id": "CROSS-TENANT-DENIAL"
+        },
+        {
+          "detail": "Unapproved production mutation must remain denied.",
+          "passed": true,
+          "rule_id": "PRODUCTION-MUTATION-DENIAL"
+        },
+        {
+          "detail": "Direct GenAI-to-tool execution must remain denied.",
+          "passed": true,
+          "rule_id": "NO-DIRECT-GENAI-EXECUTION"
+        },
+        {
+          "detail": "Domain must define sufficient evaluation cases.",
+          "passed": true,
+          "rule_id": "MINIMUM-EVALUATION-CASES"
+        },
+        {
+          "detail": "Evaluation case IDs must be unique.",
+          "passed": true,
+          "rule_id": "EVALUATION-CASE-UNIQUENESS"
+        },
+        {
+          "detail": "Adaptation evaluation requires a 100 percent pass rate.",
+          "passed": true,
+          "rule_id": "FULL-EVALUATION-PASS-RATE"
+        },
+        {
+          "detail": "Domain pack activation cannot be automatic.",
+          "passed": true,
+          "rule_id": "NO-AUTOMATIC-ACTIVATION"
+        },
+        {
+          "detail": "Production activation requires human approval.",
+          "passed": true,
+          "rule_id": "PRODUCTION-HUMAN-APPROVAL"
+        },
+        {
+          "detail": "Domain pack cannot execute, mutate policy, approve exceptions, or activate itself.",
+          "passed": true,
+          "rule_id": "AUTHORITY-BOUNDARY"
+        }
+      ],
+      "pack_id": "identity-operations-v1",
+      "status": "VALID"
+    },
+    {
+      "digest": "73d049f5997e16154fbe313e1373b5e74bb1112c831104e40ab9297edefb7deb",
+      "findings": [
+        {
+          "detail": "Domain pack must target the current platform contract.",
+          "passed": true,
+          "rule_id": "PLATFORM-CONTRACT"
+        },
+        {
+          "detail": "Domain capabilities must remain inside the platform allowlist.",
+          "passed": true,
+          "rule_id": "CAPABILITY-ALLOWLIST"
+        },
+        {
+          "detail": "Domain capabilities must be unique.",
+          "passed": true,
+          "rule_id": "CAPABILITY-UNIQUENESS"
+        },
+        {
+          "detail": "Domain must define the minimum incident taxonomy.",
+          "passed": true,
+          "rule_id": "MINIMUM-TAXONOMY"
+        },
+        {
+          "detail": "Incident category IDs must be unique.",
+          "passed": true,
+          "rule_id": "TAXONOMY-UNIQUENESS"
+        },
+        {
+          "detail": "Domain must define sufficient evidence sources.",
+          "passed": true,
+          "rule_id": "MINIMUM-EVIDENCE-SOURCES"
+        },
+        {
+          "detail": "Evidence source IDs must be unique.",
+          "passed": true,
+          "rule_id": "EVIDENCE-SOURCE-UNIQUENESS"
+        },
+        {
+          "detail": "Every domain evidence source must be tenant scoped.",
+          "passed": true,
+          "rule_id": "TENANT-SCOPED-EVIDENCE"
+        },
+        {
+          "detail": "Tool names must be unique within a domain pack.",
+          "passed": true,
+          "rule_id": "TOOL-UNIQUENESS"
+        },
+        {
+          "detail": "Tool risk levels must be platform recognized.",
+          "passed": true,
+          "rule_id": "TOOL-RISK-ALLOWLIST"
+        },
+        {
+          "detail": "Tool environments must be platform recognized.",
+          "passed": true,
+          "rule_id": "TOOL-ENVIRONMENT-ALLOWLIST"
+        },
+        {
+          "detail": "Every mutating tool must require approval.",
+          "passed": true,
+          "rule_id": "MUTATING-TOOL-APPROVAL"
+        },
+        {
+          "detail": "Domain policy may narrow but cannot expand platform policy.",
+          "passed": true,
+          "rule_id": "POLICY-NO-EXPANSION"
+        },
+        {
+          "detail": "Tenant isolation and cross-tenant denial are required.",
+          "passed": true,
+          "rule_id": "CROSS-TENANT-DENIAL"
+        },
+        {
+          "detail": "Unapproved production mutation must remain denied.",
+          "passed": true,
+          "rule_id": "PRODUCTION-MUTATION-DENIAL"
+        },
+        {
+          "detail": "Direct GenAI-to-tool execution must remain denied.",
+          "passed": true,
+          "rule_id": "NO-DIRECT-GENAI-EXECUTION"
+        },
+        {
+          "detail": "Domain must define sufficient evaluation cases.",
+          "passed": true,
+          "rule_id": "MINIMUM-EVALUATION-CASES"
+        },
+        {
+          "detail": "Evaluation case IDs must be unique.",
+          "passed": true,
+          "rule_id": "EVALUATION-CASE-UNIQUENESS"
+        },
+        {
+          "detail": "Adaptation evaluation requires a 100 percent pass rate.",
+          "passed": true,
+          "rule_id": "FULL-EVALUATION-PASS-RATE"
+        },
+        {
+          "detail": "Domain pack activation cannot be automatic.",
+          "passed": true,
+          "rule_id": "NO-AUTOMATIC-ACTIVATION"
+        },
+        {
+          "detail": "Production activation requires human approval.",
+          "passed": true,
+          "rule_id": "PRODUCTION-HUMAN-APPROVAL"
+        },
+        {
+          "detail": "Domain pack cannot execute, mutate policy, approve exceptions, or activate itself.",
+          "passed": true,
+          "rule_id": "AUTHORITY-BOUNDARY"
+        }
+      ],
+      "pack_id": "payments-operations-v1",
+      "status": "VALID"
+    }
+  ]
+}
