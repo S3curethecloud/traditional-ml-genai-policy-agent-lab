@@ -1,0 +1,11 @@
+{
+  "environment": "production",
+  "replica_count": 3,
+  "maximum_concurrent_workflows": 4,
+  "request_timeout_seconds": 30,
+  "provider_timeout_seconds": 10,
+  "health_failure_threshold": 2,
+  "require_human_approval": true,
+  "allow_deployment_simulation": true,
+  "production_side_effects_allowed": false
+}

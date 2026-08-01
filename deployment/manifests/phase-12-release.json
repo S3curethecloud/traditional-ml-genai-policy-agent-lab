@@ -1,0 +1,19 @@
+{
+  "application_name": "incident-agent",
+  "evaluation_version": "workflow-evaluation-v1",
+  "health_endpoint": "/health",
+  "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "image_repository": "ghcr.io/s3curethecloud/incident-agent",
+  "manifest_version": "deployment-manifest-v1",
+  "model_version": "v1",
+  "orchestrator_version": "governed-orchestrator-v1",
+  "policy_version": "deterministic-policy-v1",
+  "prompt_version": "incident-evidence-synthesis-v1",
+  "readiness_endpoint": "/ready",
+  "release_id": "phase-12-tutorial-release",
+  "required_handoff_path": "reports/supply-chain/deployment-handoff.json",
+  "rollback_plan_path": "deployment/ROLLBACK_PLAN.md",
+  "runtime_version": "isolated-tool-runtime-v1",
+  "source_revision": "86cbaa92d5604185edc8d3cb640ff90ee59b191d",
+  "supply_chain_policy_version": "supply-chain-policy-v1"
+}

@@ -1,0 +1,350 @@
+{
+  "failed_health_rollback": {
+    "audit_events": [
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Deployment request received.",
+        "environment": "staging",
+        "event_type": "deployment_requested",
+        "evidence_references": [
+          "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "86cbaa92d5604185edc8d3cb640ff90ee59b191d"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 1
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Deployment authorization evaluated: ALLOW.",
+        "environment": "staging",
+        "event_type": "deployment_authorized",
+        "evidence_references": [
+          "deployment_role",
+          "environment_scope",
+          "deployment_simulation_enabled",
+          "production_side_effects_disabled",
+          "deployment_handoff_exists",
+          "deployment_handoff_ready",
+          "handoff_not_already_deployed",
+          "rollback_plan_exists",
+          "source_revision_binding"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 2
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "All deployment preflight checks passed.",
+        "environment": "staging",
+        "event_type": "preflight_passed",
+        "evidence_references": [],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 3
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Desired runtime state applied in memory.",
+        "environment": "staging",
+        "event_type": "deployment_applied",
+        "evidence_references": [
+          "1e9a350d26fb33eff05d36078bd73ca0969ae32d2aa3288413c5ec401971421f"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 4
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Health or readiness validation failed.",
+        "environment": "staging",
+        "event_type": "deployment_health_failed",
+        "evidence_references": [],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 5
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Simulated runtime state removed.",
+        "environment": "staging",
+        "event_type": "deployment_rolled_back",
+        "evidence_references": [
+          "deployment/ROLLBACK_PLAN.md"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 6
+      }
+    ],
+    "authority_boundary": "The simulated runtime may apply and remove in-memory state only.",
+    "authorization_decision": "ALLOW",
+    "drift_report": null,
+    "environment": "staging",
+    "production_side_effects_performed": false,
+    "release_id": "phase-12-tutorial-release",
+    "rollback_performed": true,
+    "runtime_state": null,
+    "status": "ROLLED_BACK"
+  },
+  "manifest": {
+    "application_name": "incident-agent",
+    "evaluation_version": "workflow-evaluation-v1",
+    "health_endpoint": "/health",
+    "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "image_repository": "ghcr.io/s3curethecloud/incident-agent",
+    "manifest_version": "deployment-manifest-v1",
+    "model_version": "v1",
+    "orchestrator_version": "governed-orchestrator-v1",
+    "policy_version": "deterministic-policy-v1",
+    "prompt_version": "incident-evidence-synthesis-v1",
+    "readiness_endpoint": "/ready",
+    "release_id": "phase-12-tutorial-release",
+    "required_handoff_path": "reports/supply-chain/deployment-handoff.json",
+    "rollback_plan_path": "deployment/ROLLBACK_PLAN.md",
+    "runtime_version": "isolated-tool-runtime-v1",
+    "source_revision": "86cbaa92d5604185edc8d3cb640ff90ee59b191d",
+    "supply_chain_policy_version": "supply-chain-policy-v1"
+  },
+  "phase": "phase-12",
+  "production_with_approval": {
+    "audit_events": [
+      {
+        "actor_id": "production-release-controller",
+        "detail": "Deployment request received.",
+        "environment": "production",
+        "event_type": "deployment_requested",
+        "evidence_references": [
+          "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "86cbaa92d5604185edc8d3cb640ff90ee59b191d"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 1
+      },
+      {
+        "actor_id": "production-release-controller",
+        "detail": "Deployment authorization evaluated: ALLOW.",
+        "environment": "production",
+        "event_type": "deployment_authorized",
+        "evidence_references": [
+          "deployment_role",
+          "environment_scope",
+          "deployment_simulation_enabled",
+          "production_side_effects_disabled",
+          "deployment_handoff_exists",
+          "deployment_handoff_ready",
+          "handoff_not_already_deployed",
+          "rollback_plan_exists",
+          "source_revision_binding",
+          "production_approval"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 2
+      },
+      {
+        "actor_id": "production-release-controller",
+        "detail": "All deployment preflight checks passed.",
+        "environment": "production",
+        "event_type": "preflight_passed",
+        "evidence_references": [],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 3
+      },
+      {
+        "actor_id": "production-release-controller",
+        "detail": "Desired runtime state applied in memory.",
+        "environment": "production",
+        "event_type": "deployment_applied",
+        "evidence_references": [
+          "e13c4e07b037b7e920723608fea333478ffcc7f7ddfd5f71f393bc0ba9960cf3"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 4
+      },
+      {
+        "actor_id": "production-release-controller",
+        "detail": "Health, readiness, and drift checks passed.",
+        "environment": "production",
+        "event_type": "deployment_verified",
+        "evidence_references": [
+          "IN_SYNC"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 5
+      }
+    ],
+    "authority_boundary": "The simulated runtime may apply an authorized in-memory state. It cannot perform real infrastructure changes.",
+    "authorization_decision": "ALLOW",
+    "drift_report": {
+      "differences": [],
+      "status": "IN_SYNC"
+    },
+    "environment": "production",
+    "production_side_effects_performed": false,
+    "release_id": "phase-12-tutorial-release",
+    "rollback_performed": false,
+    "runtime_state": {
+      "configuration_sha256": "e13c4e07b037b7e920723608fea333478ffcc7f7ddfd5f71f393bc0ba9960cf3",
+      "deployed_by": "production-release-controller",
+      "environment": "production",
+      "healthy": true,
+      "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "ready": true,
+      "release_id": "phase-12-tutorial-release",
+      "replica_count": 3,
+      "source_revision": "86cbaa92d5604185edc8d3cb640ff90ee59b191d"
+    },
+    "status": "HEALTHY"
+  },
+  "production_without_approval": {
+    "audit_events": [
+      {
+        "actor_id": "deployment-operator-production",
+        "detail": "Deployment request received.",
+        "environment": "production",
+        "event_type": "deployment_requested",
+        "evidence_references": [
+          "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "86cbaa92d5604185edc8d3cb640ff90ee59b191d"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 1
+      },
+      {
+        "actor_id": "deployment-operator-production",
+        "detail": "Deployment authorization evaluated: REQUIRE_APPROVAL.",
+        "environment": "production",
+        "event_type": "deployment_authorized",
+        "evidence_references": [
+          "deployment_role",
+          "environment_scope",
+          "deployment_simulation_enabled",
+          "production_side_effects_disabled",
+          "deployment_handoff_exists",
+          "deployment_handoff_ready",
+          "handoff_not_already_deployed",
+          "rollback_plan_exists",
+          "source_revision_binding"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 2
+      },
+      {
+        "actor_id": "deployment-operator-production",
+        "detail": "Deployment did not pass preflight.",
+        "environment": "production",
+        "event_type": "deployment_blocked",
+        "evidence_references": [
+          "Production deployment requires approval."
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 3
+      }
+    ],
+    "authority_boundary": "The simulated runtime may apply an authorized deployment state. It cannot bypass deployment authorization or perform real infrastructure changes.",
+    "authorization_decision": "REQUIRE_APPROVAL",
+    "drift_report": null,
+    "environment": "production",
+    "production_side_effects_performed": false,
+    "release_id": "phase-12-tutorial-release",
+    "rollback_performed": false,
+    "runtime_state": null,
+    "status": "BLOCKED"
+  },
+  "security_properties": {
+    "ci_direct_to_production_allowed": false,
+    "deployment_identity_required": true,
+    "drift_detection_performed": true,
+    "environment_scope_required": true,
+    "health_and_readiness_required": true,
+    "immutable_image_required": true,
+    "production_approval_required": true,
+    "production_side_effects_performed": false,
+    "rollback_plan_required": true,
+    "supply_chain_handoff_required": true
+  },
+  "staging_deployment": {
+    "audit_events": [
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Deployment request received.",
+        "environment": "staging",
+        "event_type": "deployment_requested",
+        "evidence_references": [
+          "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "86cbaa92d5604185edc8d3cb640ff90ee59b191d"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 1
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Deployment authorization evaluated: ALLOW.",
+        "environment": "staging",
+        "event_type": "deployment_authorized",
+        "evidence_references": [
+          "deployment_role",
+          "environment_scope",
+          "deployment_simulation_enabled",
+          "production_side_effects_disabled",
+          "deployment_handoff_exists",
+          "deployment_handoff_ready",
+          "handoff_not_already_deployed",
+          "rollback_plan_exists",
+          "source_revision_binding"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 2
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "All deployment preflight checks passed.",
+        "environment": "staging",
+        "event_type": "preflight_passed",
+        "evidence_references": [],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 3
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Desired runtime state applied in memory.",
+        "environment": "staging",
+        "event_type": "deployment_applied",
+        "evidence_references": [
+          "1e9a350d26fb33eff05d36078bd73ca0969ae32d2aa3288413c5ec401971421f"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 4
+      },
+      {
+        "actor_id": "deployment-operator-staging",
+        "detail": "Health, readiness, and drift checks passed.",
+        "environment": "staging",
+        "event_type": "deployment_verified",
+        "evidence_references": [
+          "IN_SYNC"
+        ],
+        "release_id": "phase-12-tutorial-release",
+        "sequence": 5
+      }
+    ],
+    "authority_boundary": "The simulated runtime may apply an authorized in-memory state. It cannot perform real infrastructure changes.",
+    "authorization_decision": "ALLOW",
+    "drift_report": {
+      "differences": [],
+      "status": "IN_SYNC"
+    },
+    "environment": "staging",
+    "production_side_effects_performed": false,
+    "release_id": "phase-12-tutorial-release",
+    "rollback_performed": false,
+    "runtime_state": {
+      "configuration_sha256": "1e9a350d26fb33eff05d36078bd73ca0969ae32d2aa3288413c5ec401971421f",
+      "deployed_by": "deployment-operator-staging",
+      "environment": "staging",
+      "healthy": true,
+      "image_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "ready": true,
+      "release_id": "phase-12-tutorial-release",
+      "replica_count": 1,
+      "source_revision": "86cbaa92d5604185edc8d3cb640ff90ee59b191d"
+    },
+    "status": "HEALTHY"
+  }
+}

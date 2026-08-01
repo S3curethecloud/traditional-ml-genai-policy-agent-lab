@@ -1,0 +1,11 @@
+{
+  "environment": "staging",
+  "replica_count": 1,
+  "maximum_concurrent_workflows": 2,
+  "request_timeout_seconds": 30,
+  "provider_timeout_seconds": 10,
+  "health_failure_threshold": 3,
+  "require_human_approval": false,
+  "allow_deployment_simulation": true,
+  "production_side_effects_allowed": false
+}
