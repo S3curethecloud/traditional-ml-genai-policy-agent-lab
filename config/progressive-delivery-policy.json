@@ -1,0 +1,16 @@
+{
+  "policy_version": "progressive-delivery-policy-v1",
+  "automatic_production_progression_allowed": false,
+  "automatic_rollback_allowed": false,
+  "human_approval_required_for_expansion": true,
+  "maximum_error_budget_consumed": 0.5,
+  "required_security_gate_status": "PASS",
+  "required_slo_gate_status": "PASS",
+  "traffic_stages": [0, 5, 25, 50, 100],
+  "minimum_observation_minutes": {
+    "5": 10,
+    "25": 20,
+    "50": 30,
+    "100": 60
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "audit_events": [
+    {
+      "detail": "Candidate v15.0.0 registered.",
+      "event_type": "release_candidate_registered",
+      "evidence_references": [
+        "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "0748b05"
+      ],
+      "release_id": "phase-15-progressive-release",
+      "sequence": 1
+    },
+    {
+      "detail": "Simulated candidate traffic advanced from 0% to 5%.",
+      "event_type": "traffic_stage_approved",
+      "evidence_references": [
+        "promotion-0-5",
+        "271a0f9a96a3fbe0beae743754cd50cd4d201a1f09838d008c4e087b1fb98ece"
+      ],
+      "release_id": "phase-15-progressive-release",
+      "sequence": 2
+    },
+    {
+      "detail": "Simulated candidate traffic advanced from 5% to 25%.",
+      "event_type": "traffic_stage_approved",
+      "evidence_references": [
+        "promotion-5-25",
+        "bc727b26d54ed1eada1628bb79b15df73f39e0eacd0d2220086e4196049d9970"
+      ],
+      "release_id": "phase-15-progressive-release",
+      "sequence": 3
+    },
+    {
+      "detail": "Simulated candidate traffic advanced from 25% to 50%.",
+      "event_type": "traffic_stage_approved",
+      "evidence_references": [
+        "promotion-25-50",
+        "e7401720d6ce4f8bc6f77f2afe58ca4f4234a4b3ffd4a86219bd4c47d4fe54b4"
+      ],
+      "release_id": "phase-15-progressive-release",
+      "sequence": 4
+    },
+    {
+      "detail": "Simulated candidate traffic advanced from 50% to 100%.",
+      "event_type": "traffic_stage_approved",
+      "evidence_references": [
+        "promotion-50-100",
+        "09a18276c4e30613973a483df11f97f75ad878e6b52d83f31274895a131321af"
+      ],
+      "release_id": "phase-15-progressive-release",
+      "sequence": 5
+    },
+    {
+      "detail": "Previous version v14.0.0 restored in simulation.",
+      "event_type": "rollback_authorized",
+      "evidence_references": [
+        "Failed release gate: slo_health"
+      ],
+      "release_id": "phase-15-progressive-release",
+      "sequence": 6
+    }
+  ],
+  "authority_boundary": "The progressive-delivery controller may evaluate release evidence, require approval, simulate traffic states, pause progression, recommend rollback, and record evidence. It cannot shift real traffic or authorize its own production expansion.",
+  "automatic_progression_performed": false,
+  "automatic_rollback_performed": false,
+  "evaluations": [
+    {
+      "decision": "ALLOW",
+      "from_percentage": 0,
+      "gates": [
+        {
+          "evidence_reference": "reports/deployment/phase-12-deployment-report.json",
+          "explanation": "Approved production deployment must be healthy.",
+          "gate_name": "deployment_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Normal operational SLOs must pass.",
+          "gate_name": "slo_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Observed error-budget consumption must remain within the configured limit.",
+          "gate_name": "error_budget",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "No autonomous production action may be present.",
+          "gate_name": "security_boundary",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/resilience/phase-14-resilience-report.json",
+          "explanation": "RPO, RTO, replay, and recovery checks must pass.",
+          "gate_name": "resilience_readiness",
+          "status": "PASS"
+        }
+      ],
+      "human_approval_required": true,
+      "reasons": [
+        "All gates and approval checks passed."
+      ],
+      "to_percentage": 5
+    },
+    {
+      "decision": "ALLOW",
+      "from_percentage": 5,
+      "gates": [
+        {
+          "evidence_reference": "reports/deployment/phase-12-deployment-report.json",
+          "explanation": "Approved production deployment must be healthy.",
+          "gate_name": "deployment_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Normal operational SLOs must pass.",
+          "gate_name": "slo_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Observed error-budget consumption must remain within the configured limit.",
+          "gate_name": "error_budget",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "No autonomous production action may be present.",
+          "gate_name": "security_boundary",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/resilience/phase-14-resilience-report.json",
+          "explanation": "RPO, RTO, replay, and recovery checks must pass.",
+          "gate_name": "resilience_readiness",
+          "status": "PASS"
+        }
+      ],
+      "human_approval_required": true,
+      "reasons": [
+        "All gates and approval checks passed."
+      ],
+      "to_percentage": 25
+    },
+    {
+      "decision": "ALLOW",
+      "from_percentage": 25,
+      "gates": [
+        {
+          "evidence_reference": "reports/deployment/phase-12-deployment-report.json",
+          "explanation": "Approved production deployment must be healthy.",
+          "gate_name": "deployment_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Normal operational SLOs must pass.",
+          "gate_name": "slo_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Observed error-budget consumption must remain within the configured limit.",
+          "gate_name": "error_budget",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "No autonomous production action may be present.",
+          "gate_name": "security_boundary",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/resilience/phase-14-resilience-report.json",
+          "explanation": "RPO, RTO, replay, and recovery checks must pass.",
+          "gate_name": "resilience_readiness",
+          "status": "PASS"
+        }
+      ],
+      "human_approval_required": true,
+      "reasons": [
+        "All gates and approval checks passed."
+      ],
+      "to_percentage": 50
+    },
+    {
+      "decision": "ALLOW",
+      "from_percentage": 50,
+      "gates": [
+        {
+          "evidence_reference": "reports/deployment/phase-12-deployment-report.json",
+          "explanation": "Approved production deployment must be healthy.",
+          "gate_name": "deployment_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Normal operational SLOs must pass.",
+          "gate_name": "slo_health",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "Observed error-budget consumption must remain within the configured limit.",
+          "gate_name": "error_budget",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/operations/phase-13-operations-report.json",
+          "explanation": "No autonomous production action may be present.",
+          "gate_name": "security_boundary",
+          "status": "PASS"
+        },
+        {
+          "evidence_reference": "reports/resilience/phase-14-resilience-report.json",
+          "explanation": "RPO, RTO, replay, and recovery checks must pass.",
+          "gate_name": "resilience_readiness",
+          "status": "PASS"
+        }
+      ],
+      "human_approval_required": true,
+      "reasons": [
+        "All gates and approval checks passed."
+      ],
+      "to_percentage": 100
+    }
+  ],
+  "final_status": "ROLLED_BACK",
+  "policy_version": "progressive-delivery-policy-v1",
+  "real_traffic_shift_performed": false,
+  "release_candidate": {
+    "application_name": "incident-agent",
+    "candidate_version": "v15.0.0",
+    "deployment_report_path": "reports/deployment/phase-12-deployment-report.json",
+    "image_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "operations_report_path": "reports/operations/phase-13-operations-report.json",
+    "previous_version": "v14.0.0",
+    "release_id": "phase-15-progressive-release",
+    "resilience_report_path": "reports/resilience/phase-14-resilience-report.json",
+    "source_revision": "0748b05",
+    "target_environment": "production"
+  },
+  "rollback": {
+    "authorized": true,
+    "completed": true,
+    "from_version": "v15.0.0",
+    "real_traffic_shift_performed": false,
+    "reason": "Failed release gate: slo_health",
+    "release_id": "phase-15-progressive-release",
+    "restored_version": "v14.0.0"
+  },
+  "traffic_states": [
+    {
+      "candidate_percentage": 0,
+      "candidate_version": "v15.0.0",
+      "previous_percentage": 100,
+      "previous_version": "v14.0.0",
+      "real_traffic_shift_performed": false,
+      "release_id": "phase-15-progressive-release"
+    },
+    {
+      "candidate_percentage": 5,
+      "candidate_version": "v15.0.0",
+      "previous_percentage": 95,
+      "previous_version": "v14.0.0",
+      "real_traffic_shift_performed": false,
+      "release_id": "phase-15-progressive-release"
+    },
+    {
+      "candidate_percentage": 25,
+      "candidate_version": "v15.0.0",
+      "previous_percentage": 75,
+      "previous_version": "v14.0.0",
+      "real_traffic_shift_performed": false,
+      "release_id": "phase-15-progressive-release"
+    },
+    {
+      "candidate_percentage": 50,
+      "candidate_version": "v15.0.0",
+      "previous_percentage": 50,
+      "previous_version": "v14.0.0",
+      "real_traffic_shift_performed": false,
+      "release_id": "phase-15-progressive-release"
+    },
+    {
+      "candidate_percentage": 100,
+      "candidate_version": "v15.0.0",
+      "previous_percentage": 0,
+      "previous_version": "v14.0.0",
+      "real_traffic_shift_performed": false,
+      "release_id": "phase-15-progressive-release"
+    }
+  ]
+}

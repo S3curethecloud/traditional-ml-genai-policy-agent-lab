@@ -1,0 +1,12 @@
+{
+  "release_id": "phase-15-progressive-release",
+  "application_name": "incident-agent",
+  "candidate_version": "v15.0.0",
+  "previous_version": "v14.0.0",
+  "source_revision": "0748b05",
+  "image_digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "target_environment": "production",
+  "deployment_report_path": "reports/deployment/phase-12-deployment-report.json",
+  "operations_report_path": "reports/operations/phase-13-operations-report.json",
+  "resilience_report_path": "reports/resilience/phase-14-resilience-report.json"
+}
