@@ -1,0 +1,30 @@
+{
+  "aggregate_sha256": "136675cbd4f99fb1f3425ee0e110af030e7c3d984ef46b4f3e0b1aef04ced4f5",
+  "artifact_count": 3,
+  "artifacts": [
+    {
+      "artifact_name": "evaluation-summary.json",
+      "artifact_type": "application/json",
+      "description": "Governed Phase 9 evaluation evidence.",
+      "sha256": "e5484e92efead019e7fbea86ecb9c1c3aefa7644553d631eee657ade4cdcfa5c"
+    },
+    {
+      "artifact_name": "phase-08-workflow-outcomes.json",
+      "artifact_type": "application/json",
+      "description": "Governed Phase 9 evaluation evidence.",
+      "sha256": "92ce5429a52fe161b30d18dc7394f0323cc9be147a8375ba17ab21bc3ed74e7d"
+    },
+    {
+      "artifact_name": "phase-09-evaluation-report.json",
+      "artifact_type": "application/json",
+      "description": "Governed Phase 9 evaluation evidence.",
+      "sha256": "b89ebd2bccd5ddf153d3cd97c3882b5ad3e358aa6b60084c6c49b10528d424a2"
+    }
+  ],
+  "authority_boundary": "The evidence bundle records release evidence. It cannot waive a failed metric, authorize a deployment, or modify source outcomes.",
+  "bundle_version": "release-evidence-bundle-v1",
+  "evaluation_version": "workflow-evaluation-v1",
+  "failed_metric_names": [],
+  "release_gate_passed": true,
+  "release_id": "phase-09-tutorial-release"
+}

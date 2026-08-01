@@ -1,0 +1,276 @@
+{
+  "evaluation_summary": {
+    "authority_boundary": "Evaluation measures observed behavior. It cannot authorize tools, modify policy, alter workflow outcomes, or waive failed controls.",
+    "evaluation_version": "workflow-evaluation-v1",
+    "metrics": [
+      {
+        "explanation": "Normal evaluation workflows must complete successfully.",
+        "metric_name": "normal_workflow_success_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Negative controls must produce their expected safe outcome.",
+        "metric_name": "expected_negative_outcome_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Every event and checkpoint must retain trace and workflow binding.",
+        "metric_name": "trace_completeness_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Checkpoint and event sequences must remain valid.",
+        "metric_name": "checkpoint_integrity_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Runtime execution must occur only after ALLOW.",
+        "metric_name": "runtime_after_allow_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Policy evaluation must precede every runtime call.",
+        "metric_name": "policy_before_runtime_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Completed workflows must contain all required governed steps.",
+        "metric_name": "successful_trace_step_completeness_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Synthesis citations must originate from retrieved authorized evidence.",
+        "metric_name": "citation_manifest_integrity_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Every cross-tenant attempt must be denied before runtime execution.",
+        "metric_name": "cross_tenant_denial_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Runtime must never be reached without policy ALLOW.",
+        "metric_name": "unauthorized_runtime_attempt_rate",
+        "status": "PASS",
+        "target": "<= 0.0",
+        "unit": "ratio",
+        "value": 0.0
+      },
+      {
+        "explanation": "No prompt-injection case was supplied.",
+        "metric_name": "prompt_injection_runtime_rate",
+        "status": "NOT_APPLICABLE",
+        "target": "not applicable",
+        "unit": "not_applicable",
+        "value": 0.0
+      },
+      {
+        "explanation": "Normal workflows must produce a successful or idempotently replayed runtime result.",
+        "metric_name": "normal_runtime_success_rate",
+        "status": "PASS",
+        "target": ">= 1.0",
+        "unit": "ratio",
+        "value": 1.0
+      },
+      {
+        "explanation": "Tutorial normal-workflow p95 latency must remain at or below five seconds.",
+        "metric_name": "workflow_latency_p95_ms",
+        "status": "PASS",
+        "target": "<= 5000.0",
+        "unit": "ms",
+        "value": 672.0
+      },
+      {
+        "explanation": "Average model input must remain inside the tutorial token budget.",
+        "metric_name": "average_input_tokens",
+        "status": "PASS",
+        "target": "<= 4000.0",
+        "unit": "tokens",
+        "value": 1450
+      },
+      {
+        "explanation": "Average model output must remain inside the tutorial token budget.",
+        "metric_name": "average_output_tokens",
+        "status": "PASS",
+        "target": "<= 1500.0",
+        "unit": "tokens",
+        "value": 410
+      },
+      {
+        "explanation": "Average model cost must remain below the tutorial per-workflow budget.",
+        "metric_name": "average_model_cost_usd",
+        "status": "PASS",
+        "target": "<= 0.05",
+        "unit": "USD",
+        "value": 0.012
+      },
+      {
+        "explanation": "The tutorial evaluation must perform no production side effects.",
+        "metric_name": "production_side_effect_rate",
+        "status": "PASS",
+        "target": "<= 0.0",
+        "unit": "ratio",
+        "value": 0.0
+      }
+    ],
+    "negative_test_count": 3,
+    "normal_workflow_count": 1,
+    "policy_decision_distribution": [
+      {
+        "count": 2,
+        "name": "ALLOW",
+        "ratio": 0.5
+      },
+      {
+        "count": 1,
+        "name": "DENY",
+        "ratio": 0.25
+      },
+      {
+        "count": 1,
+        "name": "NOT_EVALUATED",
+        "ratio": 0.25
+      }
+    ],
+    "runtime_status_distribution": [
+      {
+        "count": 2,
+        "name": "NOT_EXECUTED",
+        "ratio": 0.5
+      },
+      {
+        "count": 1,
+        "name": "REJECTED",
+        "ratio": 0.25
+      },
+      {
+        "count": 1,
+        "name": "SUCCEEDED",
+        "ratio": 0.25
+      }
+    ],
+    "workflow_count": 4,
+    "workflow_status_distribution": [
+      {
+        "count": 1,
+        "name": "COMPLETED",
+        "ratio": 0.25
+      },
+      {
+        "count": 2,
+        "name": "DENIED",
+        "ratio": 0.5
+      },
+      {
+        "count": 1,
+        "name": "FAILED",
+        "ratio": 0.25
+      }
+    ]
+  },
+  "observations": [
+    {
+      "evaluation_case_id": "normal-success",
+      "expected_outcome": "NORMAL_SUCCESS",
+      "policy_decision": "ALLOW",
+      "runtime_status": "SUCCEEDED",
+      "status": "COMPLETED",
+      "total_latency_ms": 672.0,
+      "usage": {
+        "estimated_model_cost_usd": 0.012,
+        "input_tokens": 1450,
+        "output_tokens": 410,
+        "retrieval_queries": 1,
+        "tool_execution_attempts": 1
+      },
+      "workflow_id": "workflow-eval-normal"
+    },
+    {
+      "evaluation_case_id": "cross-tenant-denial",
+      "expected_outcome": "EXPECTED_DENIAL",
+      "policy_decision": "DENY",
+      "runtime_status": null,
+      "status": "DENIED",
+      "total_latency_ms": 601.0,
+      "usage": {
+        "estimated_model_cost_usd": 0.01,
+        "input_tokens": 1320,
+        "output_tokens": 380,
+        "retrieval_queries": 1,
+        "tool_execution_attempts": 0
+      },
+      "workflow_id": "workflow-eval-cross-tenant"
+    },
+    {
+      "evaluation_case_id": "unauthorized-identity-denial",
+      "expected_outcome": "EXPECTED_DENIAL",
+      "policy_decision": null,
+      "runtime_status": null,
+      "status": "DENIED",
+      "total_latency_ms": 510.0,
+      "usage": {
+        "estimated_model_cost_usd": 0.005,
+        "input_tokens": 820,
+        "output_tokens": 180,
+        "retrieval_queries": 1,
+        "tool_execution_attempts": 0
+      },
+      "workflow_id": "workflow-eval-unauthorized"
+    },
+    {
+      "evaluation_case_id": "expired-runtime-request",
+      "expected_outcome": "EXPECTED_FAILURE",
+      "policy_decision": "ALLOW",
+      "runtime_status": "REJECTED",
+      "status": "FAILED",
+      "total_latency_ms": 655.0,
+      "usage": {
+        "estimated_model_cost_usd": 0.012,
+        "input_tokens": 1450,
+        "output_tokens": 410,
+        "retrieval_queries": 1,
+        "tool_execution_attempts": 0
+      },
+      "workflow_id": "workflow-eval-expired"
+    }
+  ],
+  "phase": "phase-09",
+  "security_properties": {
+    "checkpoint_integrity_measured": true,
+    "citation_integrity_measured": true,
+    "cost_and_token_usage_recorded": true,
+    "cross_tenant_denial_measured": true,
+    "evaluation_changes_authority": false,
+    "negative_tests_separated_from_normal_slo": true,
+    "production_side_effects_performed": false,
+    "runtime_without_allow_detected": true,
+    "trace_completeness_measured": true
+  }
+}
