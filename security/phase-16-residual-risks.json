@@ -1,0 +1,32 @@
+{
+  "register_version": "phase-16-residual-risk-register-v1",
+  "risks": [
+    {
+      "risk_id": "RISK-001",
+      "title": "Dependency deprecation warnings",
+      "severity": "LOW",
+      "status": "OPEN",
+      "description": "joblib emits NumPy 2.5 deprecation warnings during model deserialization.",
+      "treatment": "Track dependency compatibility and upgrade after regression validation.",
+      "exception_approved": false
+    },
+    {
+      "risk_id": "RISK-002",
+      "title": "Simulation-only infrastructure controls",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "description": "Deployment, failover, rollback, and traffic progression remain simulated.",
+      "treatment": "Require separate infrastructure integration and authorization before production use.",
+      "exception_approved": false
+    },
+    {
+      "risk_id": "RISK-003",
+      "title": "Synthetic incident data",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "description": "Model and workflow validation use synthetic incident records.",
+      "treatment": "Perform domain acceptance testing with governed production-representative data in v2.",
+      "exception_approved": false
+    }
+  ]
+}

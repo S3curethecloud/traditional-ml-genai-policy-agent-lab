@@ -1,0 +1,215 @@
+{
+  "adversarial_results": [
+    {
+      "case_id": "attack-prompt-injection-001",
+      "category": "prompt_injection",
+      "evidence_reference": "tests/unit/retrieval/test_permission_aware_retrieval.py",
+      "expected_outcome": "BLOCKED",
+      "explanation": "Control retrieval_prompt_injection_detection produced BLOCKED for category prompt_injection.",
+      "observed_outcome": "BLOCKED",
+      "status": "PASS",
+      "target_control": "retrieval_prompt_injection_detection"
+    },
+    {
+      "case_id": "attack-cross-tenant-001",
+      "category": "cross_tenant_access",
+      "evidence_reference": "tests/unit/retrieval/test_permission_aware_retrieval.py",
+      "expected_outcome": "DENIED",
+      "explanation": "Control tenant_isolation produced DENIED for category cross_tenant_access.",
+      "observed_outcome": "DENIED",
+      "status": "PASS",
+      "target_control": "tenant_isolation"
+    },
+    {
+      "case_id": "attack-role-escalation-001",
+      "category": "identity_escalation",
+      "evidence_reference": "tests/unit/policy/test_deterministic_policy.py",
+      "expected_outcome": "DENIED",
+      "explanation": "Control role_authorization produced DENIED for category identity_escalation.",
+      "observed_outcome": "DENIED",
+      "status": "PASS",
+      "target_control": "role_authorization"
+    },
+    {
+      "case_id": "attack-policy-forgery-001",
+      "category": "policy_forgery",
+      "evidence_reference": "tests/unit/runtime/test_isolated_tool_runtime.py",
+      "expected_outcome": "REJECTED",
+      "explanation": "Control policy_fingerprint_validation produced REJECTED for category policy_forgery.",
+      "observed_outcome": "REJECTED",
+      "status": "PASS",
+      "target_control": "policy_fingerprint_validation"
+    },
+    {
+      "case_id": "attack-tool-arguments-001",
+      "category": "tool_argument_tampering",
+      "evidence_reference": "tests/unit/runtime/test_isolated_tool_runtime.py",
+      "expected_outcome": "REJECTED",
+      "explanation": "Control tool_argument_integrity produced REJECTED for category tool_argument_tampering.",
+      "observed_outcome": "REJECTED",
+      "status": "PASS",
+      "target_control": "tool_argument_integrity"
+    },
+    {
+      "case_id": "attack-approval-replay-001",
+      "category": "approval_replay",
+      "evidence_reference": "tests/unit/policy/test_deterministic_policy.py",
+      "expected_outcome": "DENIED",
+      "explanation": "Control approval_scope_binding produced DENIED for category approval_replay.",
+      "observed_outcome": "DENIED",
+      "status": "PASS",
+      "target_control": "approval_scope_binding"
+    },
+    {
+      "case_id": "attack-release-evidence-001",
+      "category": "release_evidence_tampering",
+      "evidence_reference": "tests/unit/hardening/test_production_hardening.py",
+      "expected_outcome": "REJECTED",
+      "explanation": "Control release_attestation_integrity produced REJECTED for category release_evidence_tampering.",
+      "observed_outcome": "REJECTED",
+      "status": "PASS",
+      "target_control": "release_attestation_integrity"
+    },
+    {
+      "case_id": "attack-supply-chain-001",
+      "category": "supply_chain_tampering",
+      "evidence_reference": "tests/unit/supply_chain/test_supply_chain.py",
+      "expected_outcome": "REJECTED",
+      "explanation": "Control checksum_manifest_verification produced REJECTED for category supply_chain_tampering.",
+      "observed_outcome": "REJECTED",
+      "status": "PASS",
+      "target_control": "checksum_manifest_verification"
+    },
+    {
+      "case_id": "attack-backup-corruption-001",
+      "category": "backup_corruption",
+      "evidence_reference": "tests/unit/resilience/test_resilience_dr.py",
+      "expected_outcome": "REJECTED",
+      "explanation": "Control backup_integrity_validation produced REJECTED for category backup_corruption.",
+      "observed_outcome": "REJECTED",
+      "status": "PASS",
+      "target_control": "backup_integrity_validation"
+    },
+    {
+      "case_id": "attack-promotion-approval-001",
+      "category": "promotion_approval_abuse",
+      "evidence_reference": "tests/unit/progressive_delivery/test_progressive_delivery.py",
+      "expected_outcome": "REQUIRE_APPROVAL",
+      "explanation": "Control promotion_evidence_binding produced REQUIRE_APPROVAL for category promotion_approval_abuse.",
+      "observed_outcome": "REQUIRE_APPROVAL",
+      "status": "PASS",
+      "target_control": "promotion_evidence_binding"
+    }
+  ],
+  "attestation": {
+    "attack_block_rate_percentage": 100.0,
+    "attestation_id": "security-attestation-0b591792fcd2",
+    "automatic_exception_approval_performed": false,
+    "automatic_remediation_performed": false,
+    "control_coverage_percentage": 100.0,
+    "open_critical_risks": 0,
+    "policy_version": "security-validation-policy-v1",
+    "reasons": [],
+    "status": "APPROVED"
+  },
+  "audit_events": [
+    {
+      "detail": "10 adversarial cases loaded.",
+      "event_type": "adversarial_suite_loaded",
+      "evidence_references": [
+        "phase-16-adversarial-suite"
+      ],
+      "sequence": 1
+    },
+    {
+      "detail": "Attack block rate: 100.00%.",
+      "event_type": "adversarial_suite_evaluated",
+      "evidence_references": [
+        "attack-prompt-injection-001",
+        "attack-cross-tenant-001",
+        "attack-role-escalation-001",
+        "attack-policy-forgery-001",
+        "attack-tool-arguments-001",
+        "attack-approval-replay-001",
+        "attack-release-evidence-001",
+        "attack-supply-chain-001",
+        "attack-backup-corruption-001",
+        "attack-promotion-approval-001"
+      ],
+      "sequence": 2
+    },
+    {
+      "detail": "Control coverage: 100.00%.",
+      "event_type": "control_coverage_evaluated",
+      "evidence_references": [
+        "CTRL-IDENTITY-001",
+        "CTRL-TENANT-001",
+        "CTRL-AI-INPUT-001",
+        "CTRL-POLICY-001",
+        "CTRL-SUPPLY-001",
+        "CTRL-RECOVERY-001",
+        "CTRL-RELEASE-001"
+      ],
+      "sequence": 3
+    },
+    {
+      "detail": "3 residual risks reviewed; 0 open critical.",
+      "event_type": "residual_risks_reviewed",
+      "evidence_references": [
+        "RISK-001",
+        "RISK-002",
+        "RISK-003"
+      ],
+      "sequence": 4
+    },
+    {
+      "detail": "Security attestation status: APPROVED.",
+      "event_type": "security_attestation_created",
+      "evidence_references": [
+        "security-attestation-0b591792fcd2"
+      ],
+      "sequence": 5
+    }
+  ],
+  "authority_boundary": "Security validation may execute deterministic test cases, classify outcomes, map evidence, record residual risks, and produce an attestation. It cannot grant exceptions, modify production policy, or remediate systems.",
+  "automatic_exception_approval_performed": false,
+  "automatic_remediation_performed": false,
+  "control_coverage": {
+    "coverage_percentage": 100.0,
+    "covered_controls": 7,
+    "passed": true,
+    "total_controls": 7
+  },
+  "policy_version": "security-validation-policy-v1",
+  "production_changes_performed": false,
+  "residual_risks": [
+    {
+      "description": "joblib emits NumPy 2.5 deprecation warnings during model deserialization.",
+      "exception_approved": false,
+      "risk_id": "RISK-001",
+      "severity": "LOW",
+      "status": "OPEN",
+      "title": "Dependency deprecation warnings",
+      "treatment": "Track dependency compatibility and upgrade after regression validation."
+    },
+    {
+      "description": "Deployment, failover, rollback, and traffic progression remain simulated.",
+      "exception_approved": false,
+      "risk_id": "RISK-002",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Simulation-only infrastructure controls",
+      "treatment": "Require separate infrastructure integration and authorization before production use."
+    },
+    {
+      "description": "Model and workflow validation use synthetic incident records.",
+      "exception_approved": false,
+      "risk_id": "RISK-003",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Synthetic incident data",
+      "treatment": "Perform domain acceptance testing with governed production-representative data in v2."
+    }
+  ],
+  "suite_id": "phase-16-adversarial-suite"
+}

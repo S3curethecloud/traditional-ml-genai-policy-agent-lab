@@ -1,0 +1,26 @@
+{
+  "policy_version": "security-validation-policy-v1",
+  "automatic_remediation_allowed": false,
+  "automatic_exception_approval_allowed": false,
+  "minimum_control_coverage_percentage": 100.0,
+  "minimum_attack_block_rate_percentage": 100.0,
+  "maximum_open_critical_risks": 0,
+  "required_attack_categories": [
+    "prompt_injection",
+    "cross_tenant_access",
+    "identity_escalation",
+    "policy_forgery",
+    "tool_argument_tampering",
+    "approval_replay",
+    "release_evidence_tampering",
+    "supply_chain_tampering",
+    "backup_corruption",
+    "promotion_approval_abuse"
+  ],
+  "compliance_frameworks": [
+    "NIST_AI_RMF",
+    "NIST_CSF_2_0",
+    "SOC_2",
+    "ISO_27001"
+  ]
+}

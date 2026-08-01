@@ -1,0 +1,95 @@
+{
+  "mapping_version": "phase-16-compliance-mapping-v1",
+  "controls": [
+    {
+      "control_id": "CTRL-IDENTITY-001",
+      "control_name": "Identity and role authorization",
+      "framework_mappings": [
+        "NIST_CSF_2_0.PR.AA",
+        "SOC_2.CC6",
+        "ISO_27001.A.5.15"
+      ],
+      "evidence_references": [
+        "tests/unit/policy/test_deterministic_policy.py",
+        "tests/unit/deployment/test_deployment_runtime.py"
+      ]
+    },
+    {
+      "control_id": "CTRL-TENANT-001",
+      "control_name": "Tenant data isolation",
+      "framework_mappings": [
+        "NIST_CSF_2_0.PR.DS",
+        "SOC_2.CC6",
+        "ISO_27001.A.8.3"
+      ],
+      "evidence_references": [
+        "tests/unit/retrieval/test_permission_aware_retrieval.py",
+        "tests/unit/orchestrator/test_agent_orchestrator.py"
+      ]
+    },
+    {
+      "control_id": "CTRL-AI-INPUT-001",
+      "control_name": "Prompt-injection defense",
+      "framework_mappings": [
+        "NIST_AI_RMF.MAP",
+        "NIST_AI_RMF.MEASURE",
+        "SOC_2.CC7"
+      ],
+      "evidence_references": [
+        "tests/unit/retrieval/test_permission_aware_retrieval.py",
+        "tests/unit/genai/test_evidence_synthesis.py"
+      ]
+    },
+    {
+      "control_id": "CTRL-POLICY-001",
+      "control_name": "Deterministic execution authorization",
+      "framework_mappings": [
+        "NIST_AI_RMF.GOVERN",
+        "NIST_CSF_2_0.PR.AA",
+        "SOC_2.CC6"
+      ],
+      "evidence_references": [
+        "tests/unit/policy/test_deterministic_policy.py",
+        "tests/unit/runtime/test_isolated_tool_runtime.py"
+      ]
+    },
+    {
+      "control_id": "CTRL-SUPPLY-001",
+      "control_name": "Software supply-chain integrity",
+      "framework_mappings": [
+        "NIST_CSF_2_0.GV.SC",
+        "SOC_2.CC8",
+        "ISO_27001.A.8.25"
+      ],
+      "evidence_references": [
+        "tests/unit/supply_chain/test_supply_chain.py"
+      ]
+    },
+    {
+      "control_id": "CTRL-RECOVERY-001",
+      "control_name": "Backup and recovery integrity",
+      "framework_mappings": [
+        "NIST_CSF_2_0.RC.RP",
+        "SOC_2.A1",
+        "ISO_27001.A.8.13"
+      ],
+      "evidence_references": [
+        "tests/unit/resilience/test_resilience_dr.py",
+        "reports/resilience/phase-14-resilience-report.json"
+      ]
+    },
+    {
+      "control_id": "CTRL-RELEASE-001",
+      "control_name": "Human-authorized progressive delivery",
+      "framework_mappings": [
+        "NIST_CSF_2_0.PR.PS",
+        "SOC_2.CC8",
+        "ISO_27001.A.8.32"
+      ],
+      "evidence_references": [
+        "tests/unit/progressive_delivery/test_progressive_delivery.py",
+        "reports/progressive-delivery/phase-15-progressive-delivery-report.json"
+      ]
+    }
+  ]
+}
