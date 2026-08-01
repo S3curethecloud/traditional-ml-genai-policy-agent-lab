@@ -1,0 +1,247 @@
+{
+  "actions": [
+    {
+      "action_name": "abstain_or_use_approved_fallback",
+      "automatic_execution_allowed": false,
+      "decision": "CONTINUE_DEGRADED",
+      "explanation": "The platform may return a controlled degraded response but may not broaden model or tool access.",
+      "human_authorization_required": false
+    },
+    {
+      "action_name": "stop_or_reject_new_work",
+      "automatic_execution_allowed": false,
+      "decision": "STOP_SAFELY",
+      "explanation": "The platform must fail closed and preserve its authority boundary.",
+      "human_authorization_required": false
+    },
+    {
+      "action_name": "stop_or_reject_new_work",
+      "automatic_execution_allowed": false,
+      "decision": "STOP_SAFELY",
+      "explanation": "The platform must fail closed and preserve its authority boundary.",
+      "human_authorization_required": false
+    },
+    {
+      "action_name": "stop_or_reject_new_work",
+      "automatic_execution_allowed": false,
+      "decision": "STOP_SAFELY",
+      "explanation": "The platform must fail closed and preserve its authority boundary.",
+      "human_authorization_required": false
+    },
+    {
+      "action_name": "simulate_regional_failover",
+      "automatic_execution_allowed": false,
+      "decision": "FAILOVER_ALLOWED",
+      "explanation": "Authorization permits only simulated failover in this tutorial.",
+      "human_authorization_required": true
+    },
+    {
+      "action_name": "restore_verified_checkpoint",
+      "automatic_execution_allowed": false,
+      "decision": "RESTORE_REQUIRED",
+      "explanation": "Recovery must use verified backup evidence.",
+      "human_authorization_required": true
+    }
+  ],
+  "assessments": [
+    {
+      "authority_expansion_detected": false,
+      "explanation": "The workflow may abstain or use an approved fallback without expanding execution authority.",
+      "failure_type": "PROVIDER_TIMEOUT",
+      "impact": "DEGRADED",
+      "safe_to_continue": true
+    },
+    {
+      "authority_expansion_detected": false,
+      "explanation": "Evidence-grounded reasoning cannot continue without authorized retrieval.",
+      "failure_type": "RETRIEVAL_UNAVAILABLE",
+      "impact": "CRITICAL",
+      "safe_to_continue": false
+    },
+    {
+      "authority_expansion_detected": false,
+      "explanation": "Tool execution must stop when deterministic policy is unavailable.",
+      "failure_type": "POLICY_ENGINE_UNAVAILABLE",
+      "impact": "CRITICAL",
+      "safe_to_continue": false
+    },
+    {
+      "authority_expansion_detected": false,
+      "explanation": "New work must be rejected while existing authorized work drains safely.",
+      "failure_type": "RUNTIME_SATURATION",
+      "impact": "DEGRADED",
+      "safe_to_continue": false
+    },
+    {
+      "authority_expansion_detected": false,
+      "explanation": "Regional service loss requires human-authorized failover.",
+      "failure_type": "REGIONAL_FAILURE",
+      "impact": "DISASTER",
+      "safe_to_continue": false
+    },
+    {
+      "authority_expansion_detected": false,
+      "explanation": "Corrupted checkpoint evidence requires restore from a verified backup.",
+      "failure_type": "CHECKPOINT_CORRUPTION",
+      "impact": "CRITICAL",
+      "safe_to_continue": false
+    }
+  ],
+  "audit_events": [
+    {
+      "detail": "DEGRADED: CONTINUE_DEGRADED",
+      "event_type": "chaos_scenario_evaluated",
+      "evidence_references": [
+        "PROVIDER_TIMEOUT",
+        "abstain_or_use_approved_fallback"
+      ],
+      "scenario_id": "chaos-provider-timeout",
+      "sequence": 1
+    },
+    {
+      "detail": "CRITICAL: STOP_SAFELY",
+      "event_type": "chaos_scenario_evaluated",
+      "evidence_references": [
+        "RETRIEVAL_UNAVAILABLE",
+        "stop_or_reject_new_work"
+      ],
+      "scenario_id": "chaos-retrieval-outage",
+      "sequence": 2
+    },
+    {
+      "detail": "CRITICAL: STOP_SAFELY",
+      "event_type": "chaos_scenario_evaluated",
+      "evidence_references": [
+        "POLICY_ENGINE_UNAVAILABLE",
+        "stop_or_reject_new_work"
+      ],
+      "scenario_id": "chaos-policy-outage",
+      "sequence": 3
+    },
+    {
+      "detail": "DEGRADED: STOP_SAFELY",
+      "event_type": "chaos_scenario_evaluated",
+      "evidence_references": [
+        "RUNTIME_SATURATION",
+        "stop_or_reject_new_work"
+      ],
+      "scenario_id": "chaos-runtime-saturation",
+      "sequence": 4
+    },
+    {
+      "detail": "DISASTER: FAILOVER_ALLOWED",
+      "event_type": "chaos_scenario_evaluated",
+      "evidence_references": [
+        "REGIONAL_FAILURE",
+        "simulate_regional_failover"
+      ],
+      "scenario_id": "chaos-region-west",
+      "sequence": 5
+    },
+    {
+      "detail": "CRITICAL: RESTORE_REQUIRED",
+      "event_type": "chaos_scenario_evaluated",
+      "evidence_references": [
+        "CHECKPOINT_CORRUPTION",
+        "restore_verified_checkpoint"
+      ],
+      "scenario_id": "chaos-checkpoint-corruption",
+      "sequence": 6
+    },
+    {
+      "detail": "Checkpoint backup integrity verified.",
+      "event_type": "backup_verified",
+      "evidence_references": [
+        "backup-369fb531b6be",
+        "369fb531b6be211907605a58f2e7ccb7b6cf624b279fca821c995ca5260af95e"
+      ],
+      "scenario_id": "chaos-checkpoint-corruption",
+      "sequence": 7
+    },
+    {
+      "detail": "Restored checkpoint and replay verification passed.",
+      "event_type": "recovery_verified",
+      "evidence_references": [
+        "RECOVERED",
+        "113b30c9cebb6a350a9986666097d444b5c6c508a9be3b929a992c34e757f24f"
+      ],
+      "scenario_id": "chaos-checkpoint-corruption",
+      "sequence": 8
+    }
+  ],
+  "authority_boundary": "The resilience layer may inject simulated failures, classify impact, recommend recovery, validate authorization, restore tutorial backup state, and verify consistency. It cannot perform real infrastructure failover or autonomous disaster actions.",
+  "automatic_failover_performed": false,
+  "backup": {
+    "backup_id": "backup-369fb531b6be",
+    "backup_sha256": "369fb531b6be211907605a58f2e7ccb7b6cf624b279fca821c995ca5260af95e",
+    "created_epoch_seconds": 1000,
+    "path": "backup/resilience/phase-14-checkpoint-backup.json",
+    "release_id": "phase-12-tutorial-release",
+    "source_state_sha256": "113b30c9cebb6a350a9986666097d444b5c6c508a9be3b929a992c34e757f24f"
+  },
+  "policy_version": "resilience-policy-v1",
+  "real_infrastructure_changes_performed": false,
+  "recovery": {
+    "authority_boundary_preserved": true,
+    "replay_verified": true,
+    "restored_state_sha256": "113b30c9cebb6a350a9986666097d444b5c6c508a9be3b929a992c34e757f24f",
+    "source_state_sha256": "113b30c9cebb6a350a9986666097d444b5c6c508a9be3b929a992c34e757f24f",
+    "state_consistent": true,
+    "status": "RECOVERED"
+  },
+  "release_id": "phase-12-tutorial-release",
+  "rpo": {
+    "objective_seconds": 300,
+    "observed_seconds": 180,
+    "passed": true
+  },
+  "rto": {
+    "objective_seconds": 600,
+    "observed_seconds": 300,
+    "passed": true
+  },
+  "scenarios": [
+    {
+      "affected_region": null,
+      "failure_type": "PROVIDER_TIMEOUT",
+      "injected": true,
+      "scenario_id": "chaos-provider-timeout",
+      "target_component": "genai-provider"
+    },
+    {
+      "affected_region": null,
+      "failure_type": "RETRIEVAL_UNAVAILABLE",
+      "injected": true,
+      "scenario_id": "chaos-retrieval-outage",
+      "target_component": "permission-aware-retrieval"
+    },
+    {
+      "affected_region": null,
+      "failure_type": "POLICY_ENGINE_UNAVAILABLE",
+      "injected": true,
+      "scenario_id": "chaos-policy-outage",
+      "target_component": "deterministic-policy-engine"
+    },
+    {
+      "affected_region": null,
+      "failure_type": "RUNTIME_SATURATION",
+      "injected": true,
+      "scenario_id": "chaos-runtime-saturation",
+      "target_component": "isolated-tool-runtime"
+    },
+    {
+      "affected_region": "us-west",
+      "failure_type": "REGIONAL_FAILURE",
+      "injected": true,
+      "scenario_id": "chaos-region-west",
+      "target_component": "deployment-runtime"
+    },
+    {
+      "affected_region": null,
+      "failure_type": "CHECKPOINT_CORRUPTION",
+      "injected": true,
+      "scenario_id": "chaos-checkpoint-corruption",
+      "target_component": "workflow-checkpoint-store"
+    }
+  ]
+}

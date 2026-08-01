@@ -1,0 +1,15 @@
+{
+  "checkpoint_id": "checkpoint-d89c91c1209f",
+  "created_epoch_seconds": 1000,
+  "payload": {
+    "authority_expanded": false,
+    "policy_decision": "ALLOW",
+    "release_id": "phase-12-tutorial-release",
+    "runtime_executed": false,
+    "workflow_status": "POLICY_EVALUATED"
+  },
+  "release_id": "phase-12-tutorial-release",
+  "sequence": 7,
+  "state_sha256": "113b30c9cebb6a350a9986666097d444b5c6c508a9be3b929a992c34e757f24f",
+  "workflow_id": "workflow-phase-14"
+}

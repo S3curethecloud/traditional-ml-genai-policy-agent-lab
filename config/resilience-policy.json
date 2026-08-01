@@ -1,0 +1,18 @@
+{
+  "policy_version": "resilience-policy-v1",
+  "automatic_failover_allowed": false,
+  "automatic_disaster_declaration_allowed": false,
+  "human_authorization_required": true,
+  "maximum_rpo_seconds": 300,
+  "maximum_rto_seconds": 600,
+  "minimum_healthy_regions": 1,
+  "required_backup_copies": 1,
+  "chaos_scenarios": [
+    "provider_timeout",
+    "retrieval_unavailable",
+    "policy_engine_unavailable",
+    "runtime_saturation",
+    "regional_failure",
+    "checkpoint_corruption"
+  ]
+}
