@@ -1,0 +1,142 @@
+name: CI and Supply Chain Evidence
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-supply-chain-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-and-evidence:
+    name: Test, inspect, and attest
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      PYTHONPATH: src
+      RELEASE_ATTESTATION_KEY: ci-ephemeral-test-reference
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python -m pip install pytest
+
+      - name: Validate installed dependencies
+        run: python -m pip check
+
+      - name: Compile Python source
+        run: |
+          python -m compileall -q src scripts
+
+      - name: Run complete regression suite
+        run: |
+          python -m pytest -v \
+            --junitxml=build/evidence/pytest-results.xml
+
+      - name: Regenerate Phase 9 evaluation evidence
+        run: |
+          python scripts/run_workflow_evaluation.py
+
+      - name: Regenerate Phase 10 hardening evidence
+        run: |
+          python scripts/run_production_hardening.py
+
+      - name: Generate Phase 11 supply-chain evidence
+        run: |
+          python scripts/run_supply_chain_evidence.py \
+            --release-id \
+            "github-${GITHUB_SHA}"
+
+      - name: Validate generated evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "reports/supply-chain/"
+                  "phase-11-supply-chain-report.json"
+              ).read_text(encoding="utf-8")
+          )
+
+          assert report["status"] == "PASS"
+          assert report["failed_count"] == 0
+          assert (
+              report["deployment_handoff"]["decision"]
+              == "READY_FOR_DEPLOYMENT_HANDOFF"
+          )
+          assert (
+              report["deployment_handoff"][
+                  "deployment_performed"
+              ]
+              is False
+          )
+
+          print("PASS: supply-chain release gates passed")
+          print("PASS: deployment handoff prepared")
+          print("PASS: no deployment performed")
+          PY
+
+      - name: Build container without pushing
+        run: |
+          docker build \
+            --tag incident-agent:${GITHUB_SHA} \
+            .
+
+      - name: Verify non-root container user
+        run: |
+          test "$(
+            docker image inspect \
+              incident-agent:${GITHUB_SHA} \
+              --format '{{.Config.User}}'
+          )" = "10001:10001"
+
+      - name: Export container metadata
+        run: |
+          docker image inspect \
+            incident-agent:${GITHUB_SHA} \
+            > build/evidence/container-inspect.json
+
+          docker image inspect \
+            incident-agent:${GITHUB_SHA} \
+            --format '{{.Id}}' \
+            > build/evidence/container-image-id.txt
+
+      - name: Upload release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-11-release-evidence
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            build/evidence/
+            reports/observability/
+            reports/hardening/
+            reports/supply-chain/
+            deployment/ROLLBACK_PLAN.md
+            config/production-hardening.json
+            config/supply-chain-policy.json

@@ -1,0 +1,17 @@
+{
+  "checksum_manifest_sha256": "32645095b2ab12292f0f7abdb17ae07bd9bcc9dd4e6f5509239f9539099c0bed",
+  "decision": "READY_FOR_DEPLOYMENT_HANDOFF",
+  "deployment_performed": false,
+  "evidence_sha256": "136675cbd4f99fb1f3425ee0e110af030e7c3d984ef46b4f3e0b1aef04ced4f5",
+  "handoff_version": "deployment-handoff-v1",
+  "provenance_sha256": "90df26b917a71ae02779962f22c583bff31f438fc04c4e5c1a01c8b116ebc400",
+  "reasons": [
+    "All supply-chain and evidence gates passed."
+  ],
+  "release_id": "phase-11-tutorial-release",
+  "rollback_plan_path": "deployment/ROLLBACK_PLAN.md",
+  "sbom_sha256": "c3a3651c0e12baee5fdb06613d0d3252529acfb1a05fec3f95d52e16d2c50296",
+  "source_environment": "staging",
+  "source_revision": "86cbaa92d5604185edc8d3cb640ff90ee59b191d",
+  "target_environment": "production"
+}

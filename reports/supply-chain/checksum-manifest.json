@@ -1,0 +1,41 @@
+{
+  "aggregate_sha256": "32645095b2ab12292f0f7abdb17ae07bd9bcc9dd4e6f5509239f9539099c0bed",
+  "artifacts": [
+    {
+      "path": "Dockerfile",
+      "sha256": "9a63b61fed06419feb7301eb887f0479e941f028ad24d72b94f0416612b454d8",
+      "size_bytes": 701
+    },
+    {
+      "path": "config/production-hardening.json",
+      "sha256": "0e80bab82ee9e97424a99e53364fce3a1fc4ee43f85b331de08c8edda758537f",
+      "size_bytes": 1184
+    },
+    {
+      "path": "config/supply-chain-policy.json",
+      "sha256": "dbb464a10ce7b172bdf12ae473639ca665e1c8d74918e59b54d7cd654127493a",
+      "size_bytes": 1061
+    },
+    {
+      "path": "deployment/ROLLBACK_PLAN.md",
+      "sha256": "ed15b4edb112811cd4f5f6dfcf3a3ea50dae4fa5c9970d8c9fa5a12612c89762",
+      "size_bytes": 1620
+    },
+    {
+      "path": "reports/hardening/phase-10-production-readiness.json",
+      "sha256": "2529f1241238d94c37ac3aa2e4c6b70244e02737038d2eac069d9a08f4e4bd65",
+      "size_bytes": 5935
+    },
+    {
+      "path": "reports/observability/phase-09-release-evidence.json",
+      "sha256": "63d357568ae36822c7753f77791df0859856917c67e74039c10fdc34512005a1",
+      "size_bytes": 1268
+    },
+    {
+      "path": "reports/supply-chain/sbom.json",
+      "sha256": "fd10b4ad8c08e303e6a9aca97cd460bc98a1168cd0b5a88eab67f37ea8b6c460",
+      "size_bytes": 1836
+    }
+  ],
+  "manifest_version": "checksum-manifest-v1"
+}

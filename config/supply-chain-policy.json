@@ -1,0 +1,36 @@
+{
+  "policy_version": "supply-chain-policy-v1",
+  "required_test_command": "PYTHONPATH=src python -m pytest",
+  "required_python_version": "3.12",
+  "required_evidence_files": [
+    "reports/observability/phase-09-release-evidence.json",
+    "reports/hardening/phase-10-production-readiness.json"
+  ],
+  "required_release_gate_status": true,
+  "required_readiness_status": "READY",
+  "required_promotion_decision": "APPROVE",
+  "required_container_user": "10001",
+  "maximum_container_size_mb": 500,
+  "require_non_root_container": true,
+  "require_sbom": true,
+  "require_checksum_manifest": true,
+  "require_build_provenance": true,
+  "require_rollback_artifact": true,
+  "require_deployment_handoff": true,
+  "prohibited_file_patterns": [
+    ".env",
+    "*.pem",
+    "*.key",
+    "id_rsa",
+    "id_ed25519"
+  ],
+  "prohibited_secret_markers": [
+    "BEGIN PRIVATE KEY",
+    "BEGIN RSA PRIVATE KEY",
+    "aws_secret_access_key",
+    "client_secret=",
+    "password="
+  ],
+  "allowed_promotion_source": "staging",
+  "allowed_promotion_target": "production"
+}

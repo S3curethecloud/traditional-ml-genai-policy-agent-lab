@@ -1,0 +1,14 @@
+{
+  "build_command": "docker build --tag incident-agent .",
+  "builder_identity": "local-tutorial-builder",
+  "checksum_manifest_sha256": "32645095b2ab12292f0f7abdb17ae07bd9bcc9dd4e6f5509239f9539099c0bed",
+  "policy_sha256": "17bbf3319852bdf4035e824b15606a6a2a4291e49161833bfbdc73002261e609",
+  "production_deployment_performed": false,
+  "provenance_version": "build-provenance-v1",
+  "release_id": "phase-11-tutorial-release",
+  "sbom_sha256": "c3a3651c0e12baee5fdb06613d0d3252529acfb1a05fec3f95d52e16d2c50296",
+  "source_branch": "main",
+  "source_repository": "S3curethecloud/traditional-ml-genai-policy-agent-lab",
+  "source_revision": "86cbaa92d5604185edc8d3cb640ff90ee59b191d",
+  "test_command": "PYTHONPATH=src python -m pytest"
+}

@@ -1,0 +1,9 @@
+{
+  "checksum_manifest_sha256": "5e7ab2ab52b963c413b3f1d3101e3a956cf580385644cac111f09294924226df",
+  "deployment_handoff_sha256": "a169cf390a26017f3bcbe0db98d6f416a5c001390515cd8f41608af6d13c73c7",
+  "production_deployment_performed": false,
+  "provenance_sha256": "b37704e777c8c7946e94505b20aed58e55ed7b309aab6029b9117a840443d4ca",
+  "release_id": "phase-11-tutorial-release",
+  "report_sha256": "54b8acd858792507d25b7e8894d7e2b76e3f690a85ee79ccfc6e7bd58e462170",
+  "sbom_sha256": "fd10b4ad8c08e303e6a9aca97cd460bc98a1168cd0b5a88eab67f37ea8b6c460"
+}

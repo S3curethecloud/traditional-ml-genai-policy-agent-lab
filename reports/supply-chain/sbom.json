@@ -1,0 +1,86 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "name": "iniconfig",
+      "purl": "pkg:pypi/iniconfig@2.3.0",
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "name": "joblib",
+      "purl": "pkg:pypi/joblib@1.5.3",
+      "type": "library",
+      "version": "1.5.3"
+    },
+    {
+      "name": "narwhals",
+      "purl": "pkg:pypi/narwhals@2.24.0",
+      "type": "library",
+      "version": "2.24.0"
+    },
+    {
+      "name": "numpy",
+      "purl": "pkg:pypi/numpy@2.5.1",
+      "type": "library",
+      "version": "2.5.1"
+    },
+    {
+      "name": "packaging",
+      "purl": "pkg:pypi/packaging@26.2",
+      "type": "library",
+      "version": "26.2"
+    },
+    {
+      "name": "pip",
+      "purl": "pkg:pypi/pip@26.2",
+      "type": "library",
+      "version": "26.2"
+    },
+    {
+      "name": "pluggy",
+      "purl": "pkg:pypi/pluggy@1.6.0",
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "name": "Pygments",
+      "purl": "pkg:pypi/pygments@2.20.0",
+      "type": "library",
+      "version": "2.20.0"
+    },
+    {
+      "name": "pytest",
+      "purl": "pkg:pypi/pytest@9.1.1",
+      "type": "library",
+      "version": "9.1.1"
+    },
+    {
+      "name": "PyYAML",
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "type": "library",
+      "version": "6.0.3"
+    },
+    {
+      "name": "scikit-learn",
+      "purl": "pkg:pypi/scikit-learn@1.9.0",
+      "type": "library",
+      "version": "1.9.0"
+    },
+    {
+      "name": "scipy",
+      "purl": "pkg:pypi/scipy@1.18.0",
+      "type": "library",
+      "version": "1.18.0"
+    },
+    {
+      "name": "threadpoolctl",
+      "purl": "pkg:pypi/threadpoolctl@3.6.0",
+      "type": "library",
+      "version": "3.6.0"
+    }
+  ],
+  "serialNumber": "urn:uuid:1a023a95-b391-5a49-8415-f54b9f336bd4",
+  "specVersion": "1.5",
+  "version": 1
+}
