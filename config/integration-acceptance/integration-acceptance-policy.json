@@ -1,0 +1,48 @@
+{
+  "policy_version": "integration-acceptance-policy-v1",
+  "platform_contract_version": "incident-agent-platform-v1",
+  "minimum_scenario_pass_rate_percentage": 100.0,
+  "minimum_stage_coverage_percentage": 100.0,
+  "minimum_evidence_continuity_percentage": 100.0,
+  "automatic_acceptance_approval_allowed": false,
+  "automatic_exception_approval_allowed": false,
+  "automatic_remediation_allowed": false,
+  "production_execution_allowed": false,
+  "required_domains": [
+    "identity-operations",
+    "payments-operations"
+  ],
+  "required_scenario_types": [
+    "authorized_success",
+    "cross_tenant_denial",
+    "prompt_injection_block",
+    "insufficient_evidence_abstention",
+    "policy_forgery_rejection",
+    "mutating_action_escalation"
+  ],
+  "required_stages": [
+    "request_validation",
+    "domain_resolution",
+    "ml_inference",
+    "retrieval",
+    "genai_synthesis",
+    "policy_evaluation",
+    "runtime_evaluation",
+    "orchestration",
+    "observability",
+    "security_validation",
+    "release_evidence"
+  ],
+  "runtime_required_only_for_outcomes": [
+    "COMPLETED",
+    "ESCALATED"
+  ],
+  "prohibited_real_side_effects": [
+    "production_deployment",
+    "production_traffic_shift",
+    "production_data_mutation",
+    "automatic_rollback",
+    "automatic_failover",
+    "automatic_exception_approval"
+  ]
+}
