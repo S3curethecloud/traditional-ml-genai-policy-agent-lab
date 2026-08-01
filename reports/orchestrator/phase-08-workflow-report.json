@@ -1,0 +1,221 @@
+{
+  "phase": "phase-08",
+  "replay_verification": {
+    "checkpoint_sequence_valid": true,
+    "errors": [],
+    "event_sequence_valid": true,
+    "runtime_after_allow_only": true,
+    "trace_binding_valid": true,
+    "valid": true,
+    "workflow_binding_valid": true
+  },
+  "security_properties": {
+    "checkpoint_after_each_step": true,
+    "direct_genai_runtime_path": false,
+    "ordered_state_transitions": true,
+    "policy_cannot_be_skipped": true,
+    "production_side_effects_performed": false,
+    "runtime_requires_allow": true,
+    "trace_binding_enforced": true,
+    "typed_workflow_state": true,
+    "workflow_replay_verified": true
+  },
+  "workflow_outcome": {
+    "authority_boundary": "The orchestrator sequences governed components. It cannot bypass retrieval, policy, approval, or runtime controls.",
+    "case_id": "dependency-errors-with-network-loss",
+    "checkpoints": [
+      {
+        "evidence_references": [],
+        "sequence": 1,
+        "state_digest": "936e2fd2abf8731827a0acb0bdd021ba00cdf31e6e46dba09c6ff98428487a1e",
+        "step": "RECEIVED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "evidence_references": [
+          "dependency-errors-with-network-loss",
+          "network_degradation",
+          "dependency_failure"
+        ],
+        "sequence": 2,
+        "state_digest": "98b5e3d7d855c4a568e78d012416f7027df96d0cfd163974a0e3973b15e51ee2",
+        "step": "AMBIGUITY_EVALUATED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "evidence_references": [
+          "[runbook-dependency-failure]",
+          "[runbook-network-degradation]",
+          "[incident-network-noise-2026-05]",
+          "[runbook-identity-token-validation]",
+          "[deployment-identity-api-4-3-1]"
+        ],
+        "sequence": 3,
+        "state_digest": "0f92ef9371f77fff9d77f6d06fee4ec1e83048b0d3e5fd44f7d259518fbe0094",
+        "step": "RETRIEVAL_COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "evidence_references": [
+          "[runbook-dependency-failure]",
+          "[deployment-identity-api-4-3-1]",
+          "[runbook-network-degradation]"
+        ],
+        "sequence": 4,
+        "state_digest": "690cadd4731fd895b10504635cc948594e4be7274d6b4a4bcff9d09d574a48d7",
+        "step": "SYNTHESIS_COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "evidence_references": [
+          "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+          "POL-ALLOW-001"
+        ],
+        "sequence": 5,
+        "state_digest": "f422bca6ca4708b00065d23192f3f1d3313dc2a607b4397b22605f962b51d9bf",
+        "step": "POLICY_EVALUATED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "evidence_references": [
+          "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+          "SUCCEEDED",
+          "runtime_request_received",
+          "runtime_policy_binding_validated",
+          "runtime_execution_attempt",
+          "runtime_execution_succeeded"
+        ],
+        "sequence": 6,
+        "state_digest": "e9dc394fef6b253c8114ee81213770f355d18b23f79044bf1c6833179db552a6",
+        "step": "RUNTIME_COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "evidence_references": [
+          "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+          "SUCCEEDED",
+          "runtime_request_received",
+          "runtime_policy_binding_validated",
+          "runtime_execution_attempt",
+          "runtime_execution_succeeded"
+        ],
+        "sequence": 7,
+        "state_digest": "28ee4f63f0c7db095495324f3efc9d8981d68d961d22503707e4c0f6840ddaac",
+        "step": "COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      }
+    ],
+    "events": [
+      {
+        "detail": "Typed workflow request accepted by the orchestrator.",
+        "event_type": "workflow_received",
+        "evidence_references": [],
+        "sequence": 1,
+        "step": "RECEIVED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "detail": "Deterministic and ML evidence evaluated.",
+        "event_type": "ambiguity_evaluated",
+        "evidence_references": [
+          "dependency-errors-with-network-loss",
+          "network_degradation",
+          "dependency_failure"
+        ],
+        "sequence": 2,
+        "step": "AMBIGUITY_EVALUATED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "detail": "Permission-aware retrieval completed before GenAI synthesis.",
+        "event_type": "retrieval_completed",
+        "evidence_references": [
+          "[runbook-dependency-failure]",
+          "[runbook-network-degradation]",
+          "[incident-network-noise-2026-05]",
+          "[runbook-identity-token-validation]",
+          "[deployment-identity-api-4-3-1]"
+        ],
+        "sequence": 3,
+        "step": "RETRIEVAL_COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "detail": "GenAI produced structured evidence synthesis and a typed recommendation.",
+        "event_type": "synthesis_completed",
+        "evidence_references": [
+          "[runbook-dependency-failure]",
+          "[deployment-identity-api-4-3-1]",
+          "[runbook-network-degradation]"
+        ],
+        "sequence": 4,
+        "step": "SYNTHESIS_COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "detail": "Deterministic policy returned ALLOW.",
+        "event_type": "policy_evaluated",
+        "evidence_references": [
+          "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+          "POL-ALLOW-001"
+        ],
+        "sequence": 5,
+        "step": "POLICY_EVALUATED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "detail": "Isolated runtime returned SUCCEEDED.",
+        "event_type": "runtime_completed",
+        "evidence_references": [
+          "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+          "SUCCEEDED",
+          "runtime_request_received",
+          "runtime_policy_binding_validated",
+          "runtime_execution_attempt",
+          "runtime_execution_succeeded"
+        ],
+        "sequence": 6,
+        "step": "RUNTIME_COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      },
+      {
+        "detail": "Governed workflow completed.",
+        "event_type": "workflow_completed",
+        "evidence_references": [
+          "06bec51b232db19e72e50e4898c57a57c7f76909e640c4f48cfbf37acd1681d5",
+          "SUCCEEDED",
+          "runtime_request_received",
+          "runtime_policy_binding_validated",
+          "runtime_execution_attempt",
+          "runtime_execution_succeeded"
+        ],
+        "sequence": 7,
+        "step": "COMPLETED",
+        "trace_id": "trace-phase-08-001",
+        "workflow_id": "workflow-phase-08-001"
+      }
+    ],
+    "final_step": "COMPLETED",
+    "orchestrator_version": "governed-orchestrator-v1",
+    "policy_decision": "ALLOW",
+    "recommended_tool": "inspect_incident_telemetry",
+    "runtime_status": "SUCCEEDED",
+    "status": "COMPLETED",
+    "stop_reason": "NONE",
+    "trace_id": "trace-phase-08-001",
+    "workflow_id": "workflow-phase-08-001"
+  }
+}
