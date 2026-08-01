@@ -1,0 +1,66 @@
+{
+  "gate_set_id": "v2-final-release-gates",
+  "release_id": "traditional-ml-genai-policy-agent-v2",
+  "gates": [
+    {
+      "gate_id": "security-validation-approved",
+      "passed": true,
+      "evidence_id": "phase-16-security-validation-report"
+    },
+    {
+      "gate_id": "domain-adaptation-valid",
+      "passed": true,
+      "evidence_id": "phase-17-domain-adaptation-report"
+    },
+    {
+      "gate_id": "platform-acceptance-approved",
+      "passed": true,
+      "evidence_id": "phase-18-platform-acceptance-report"
+    },
+    {
+      "gate_id": "operational-readiness-approved",
+      "passed": true,
+      "evidence_id": "phase-19-operational-readiness-report"
+    },
+    {
+      "gate_id": "full-regression-passed",
+      "passed": true,
+      "evidence_id": "full-regression-354-tests"
+    },
+    {
+      "gate_id": "release-candidate-immutable",
+      "passed": true,
+      "evidence_id": "release-candidate-manifest"
+    },
+    {
+      "gate_id": "rollback-path-verified",
+      "passed": true,
+      "evidence_id": "release-rollback-capability"
+    },
+    {
+      "gate_id": "recovery-path-verified",
+      "passed": true,
+      "evidence_id": "resilience-and-recovery-capability"
+    },
+    {
+      "gate_id": "open-critical-risks-zero",
+      "passed": true,
+      "evidence_id": "phase-16-residual-risk-register"
+    },
+    {
+      "gate_id": "approved-exceptions-zero",
+      "passed": true,
+      "evidence_id": "phase-16-security-attestation"
+    },
+    {
+      "gate_id": "authority-boundary-preserved",
+      "passed": true,
+      "evidence_id": "v2-authority-boundary"
+    },
+    {
+      "gate_id": "production-approval-still-required",
+      "passed": true,
+      "evidence_id": "release-closure-policy"
+    }
+  ]
+}

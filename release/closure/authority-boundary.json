@@ -1,0 +1,32 @@
+{
+  "boundary_id": "v2-final-authority-boundary",
+  "release_id": "traditional-ml-genai-policy-agent-v2",
+  "restrictions": [
+    {
+      "restriction": "no_automatic_deployment",
+      "preserved": true
+    },
+    {
+      "restriction": "no_automatic_traffic_shift",
+      "preserved": true
+    },
+    {
+      "restriction": "no_automatic_exception_approval",
+      "preserved": true
+    },
+    {
+      "restriction": "no_automatic_risk_acceptance",
+      "preserved": true
+    },
+    {
+      "restriction": "no_production_authority_transfer",
+      "preserved": true
+    }
+  ],
+  "production_approval_required": true,
+  "production_approver_assigned": false,
+  "deployment_credentials_created": false,
+  "deployment_credentials_used": false,
+  "production_access_granted": false,
+  "production_authority_transferred": false
+}

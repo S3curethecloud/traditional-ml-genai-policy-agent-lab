@@ -1,0 +1,32 @@
+{
+  "register_id": "v2-risk-and-exception-closure",
+  "release_id": "traditional-ml-genai-policy-agent-v2",
+  "open_critical_risks": 0,
+  "open_high_risks": 0,
+  "approved_exceptions": 0,
+  "automatically_accepted_risks": 0,
+  "automatically_approved_exceptions": 0,
+  "residual_risks": [
+    {
+      "risk_id": "external-provider-availability",
+      "severity": "MEDIUM",
+      "status": "MITIGATED_AND_MONITORED",
+      "mitigation": "Timeouts, circuit breakers, fallback restrictions, and safe abstention."
+    },
+    {
+      "risk_id": "model-quality-drift",
+      "severity": "MEDIUM",
+      "status": "MITIGATED_AND_MONITORED",
+      "mitigation": "Evaluation gates, observability, evidence review, and release controls."
+    },
+    {
+      "risk_id": "operator-process-failure",
+      "severity": "MEDIUM",
+      "status": "MITIGATED_AND_MONITORED",
+      "mitigation": "Runbooks, role separation, approval binding, and audit evidence."
+    }
+  ],
+  "release_blocking_risks": [],
+  "risk_acceptance_performed": false,
+  "exception_approval_performed": false
+}

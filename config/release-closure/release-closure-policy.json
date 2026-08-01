@@ -1,0 +1,48 @@
+{
+  "policy_version": "release-closure-policy-v1",
+  "platform_contract_version": "incident-agent-platform-v1",
+  "release_train": "v2",
+  "minimum_gate_pass_rate_percentage": 100.0,
+  "minimum_evidence_coverage_percentage": 100.0,
+  "maximum_open_critical_risks": 0,
+  "maximum_approved_exceptions": 0,
+  "automatic_release_approval_allowed": false,
+  "automatic_deployment_allowed": false,
+  "automatic_traffic_shift_allowed": false,
+  "automatic_exception_approval_allowed": false,
+  "automatic_risk_acceptance_allowed": false,
+  "production_authority_transfer_allowed": false,
+  "required_phase_evidence": [
+    "phase-16-security-validation-report",
+    "phase-17-domain-adaptation-report",
+    "phase-18-platform-acceptance-report",
+    "phase-19-operational-readiness-report"
+  ],
+  "required_release_gates": [
+    "security-validation-approved",
+    "domain-adaptation-valid",
+    "platform-acceptance-approved",
+    "operational-readiness-approved",
+    "full-regression-passed",
+    "release-candidate-immutable",
+    "rollback-path-verified",
+    "recovery-path-verified",
+    "open-critical-risks-zero",
+    "approved-exceptions-zero",
+    "authority-boundary-preserved",
+    "production-approval-still-required"
+  ],
+  "required_recovery_capabilities": [
+    "rollback",
+    "checkpoint_restore",
+    "audit_replay",
+    "regional_recovery"
+  ],
+  "required_authority_restrictions": [
+    "no_automatic_deployment",
+    "no_automatic_traffic_shift",
+    "no_automatic_exception_approval",
+    "no_automatic_risk_acceptance",
+    "no_production_authority_transfer"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "closure_id": "v2-rollback-and-recovery-closure",
+  "release_id": "traditional-ml-genai-policy-agent-v2",
+  "capabilities": [
+    {
+      "capability": "rollback",
+      "verified": true,
+      "evidence": "Progressive-delivery rollback path and release rollback runbook.",
+      "automatic_execution": false
+    },
+    {
+      "capability": "checkpoint_restore",
+      "verified": true,
+      "evidence": "Checkpoint backup integrity and restoration tests.",
+      "automatic_execution": false
+    },
+    {
+      "capability": "audit_replay",
+      "verified": true,
+      "evidence": "Workflow replay and runtime authorization verification.",
+      "automatic_execution": false
+    },
+    {
+      "capability": "regional_recovery",
+      "verified": true,
+      "evidence": "Resilience and disaster-recovery validation.",
+      "automatic_execution": false
+    }
+  ],
+  "real_rollback_performed": false,
+  "real_restore_performed": false,
+  "real_failover_performed": false,
+  "production_state_changed": false
+}

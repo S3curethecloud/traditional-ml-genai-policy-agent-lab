@@ -1,0 +1,220 @@
+{
+  "authority_boundary": "Release closure may validate an immutable candidate, bind prior evidence, evaluate final gates, verify rollback and recovery capability, and issue a controlled-deployment readiness decision. It cannot approve production use, deploy infrastructure, shift traffic, create or use credentials, accept risks, approve exceptions, or transfer production authority.",
+  "authority_restrictions": [
+    {
+      "preserved": true,
+      "restriction": "no_automatic_deployment"
+    },
+    {
+      "preserved": true,
+      "restriction": "no_automatic_traffic_shift"
+    },
+    {
+      "preserved": true,
+      "restriction": "no_automatic_exception_approval"
+    },
+    {
+      "preserved": true,
+      "restriction": "no_automatic_risk_acceptance"
+    },
+    {
+      "preserved": true,
+      "restriction": "no_production_authority_transfer"
+    }
+  ],
+  "automatic_deployment_performed": false,
+  "automatic_exception_approval_performed": false,
+  "automatic_release_approval_performed": false,
+  "automatic_risk_acceptance_performed": false,
+  "automatic_traffic_shift_performed": false,
+  "candidate": {
+    "artifact_digest": "sha256:8a0f50cd3ce94eb4f3957d15642f76488876ec499378c406952f55034f6815f3",
+    "candidate_status": "READY_FOR_CLOSURE_EVALUATION",
+    "configuration_digest": "sha256:e91bcc98be773985cf6afb16d2638999456e6901643388400ae8136acb12f643",
+    "deployment_performed": false,
+    "domain_pack_digests": [
+      [
+        "identity-operations-v1",
+        "sha256:85c78713cab98b3e6e3c566ee12464282405636ca182e429ab54694051ffb17d"
+      ],
+      [
+        "payments-operations-v1",
+        "sha256:d1989d96ca6d8a17ff434216be96dbd087d914ea2dd2c5522e8cb8048492599e"
+      ]
+    ],
+    "human_production_approval_required": true,
+    "immutable": true,
+    "manifest_digest": "7f9009b02ed4a30a3651aa2b74762c546860eaadab36f86ae89a1a931f33a886",
+    "platform_contract_version": "incident-agent-platform-v1",
+    "policy_digest": "sha256:27823878c39689c085e0abc989b49077294046081c2c2a242ba4464cc47b738f",
+    "production_activation_performed": false,
+    "release_id": "traditional-ml-genai-policy-agent-v2",
+    "release_version": "2.0.0",
+    "source_branch": "main",
+    "target_environment": "production",
+    "traffic_shift_performed": false
+  },
+  "decision": "READY_FOR_CONTROLLED_DEPLOYMENT",
+  "evidence": [
+    {
+      "decision": "APPROVED",
+      "evidence_id": "phase-16-security-validation-report",
+      "path": "reports/security-validation/phase-16-security-validation-report.json",
+      "phase": 16,
+      "required": true,
+      "validated": true
+    },
+    {
+      "decision": "READY_FOR_INTEGRATION",
+      "evidence_id": "phase-17-domain-adaptation-report",
+      "path": "reports/domain-adaptation/phase-17-domain-adaptation-report.json",
+      "phase": 17,
+      "required": true,
+      "validated": true
+    },
+    {
+      "decision": "ACCEPTED_FOR_OPERATIONAL_READINESS",
+      "evidence_id": "phase-18-platform-acceptance-report",
+      "path": "reports/integration-acceptance/phase-18-platform-acceptance-report.json",
+      "phase": 18,
+      "required": true,
+      "validated": true
+    },
+    {
+      "decision": "READY_FOR_CONTROLLED_RELEASE_CLOSURE",
+      "evidence_id": "phase-19-operational-readiness-report",
+      "path": "reports/operational-readiness/phase-19-operational-readiness-report.json",
+      "phase": 19,
+      "required": true,
+      "validated": true
+    }
+  ],
+  "gates": [
+    {
+      "evidence_id": "phase-16-security-validation-report",
+      "gate_id": "security-validation-approved",
+      "passed": true
+    },
+    {
+      "evidence_id": "phase-17-domain-adaptation-report",
+      "gate_id": "domain-adaptation-valid",
+      "passed": true
+    },
+    {
+      "evidence_id": "phase-18-platform-acceptance-report",
+      "gate_id": "platform-acceptance-approved",
+      "passed": true
+    },
+    {
+      "evidence_id": "phase-19-operational-readiness-report",
+      "gate_id": "operational-readiness-approved",
+      "passed": true
+    },
+    {
+      "evidence_id": "full-regression-354-tests",
+      "gate_id": "full-regression-passed",
+      "passed": true
+    },
+    {
+      "evidence_id": "release-candidate-manifest",
+      "gate_id": "release-candidate-immutable",
+      "passed": true
+    },
+    {
+      "evidence_id": "release-rollback-capability",
+      "gate_id": "rollback-path-verified",
+      "passed": true
+    },
+    {
+      "evidence_id": "resilience-and-recovery-capability",
+      "gate_id": "recovery-path-verified",
+      "passed": true
+    },
+    {
+      "evidence_id": "phase-16-residual-risk-register",
+      "gate_id": "open-critical-risks-zero",
+      "passed": true
+    },
+    {
+      "evidence_id": "phase-16-security-attestation",
+      "gate_id": "approved-exceptions-zero",
+      "passed": true
+    },
+    {
+      "evidence_id": "v2-authority-boundary",
+      "gate_id": "authority-boundary-preserved",
+      "passed": true
+    },
+    {
+      "evidence_id": "release-closure-policy",
+      "gate_id": "production-approval-still-required",
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "approved_exceptions": 0,
+    "covered_required_evidence": 4,
+    "evidence_coverage_percentage": 100.0,
+    "gate_pass_rate_percentage": 100.0,
+    "open_critical_risks": 0,
+    "passed_required_gates": 12,
+    "preserved_authority_restrictions": 5,
+    "required_authority_restrictions": 5,
+    "required_recovery_capabilities": 4,
+    "total_required_evidence": 4,
+    "total_required_gates": 12,
+    "verified_recovery_capabilities": 4
+  },
+  "platform_contract_version": "incident-agent-platform-v1",
+  "policy_version": "release-closure-policy-v1",
+  "production_authority_transfer_performed": false,
+  "production_state_changed": false,
+  "reasons": [],
+  "recovery_capabilities": [
+    {
+      "automatic_execution": false,
+      "capability": "rollback",
+      "evidence": "Progressive-delivery rollback path and release rollback runbook.",
+      "verified": true
+    },
+    {
+      "automatic_execution": false,
+      "capability": "checkpoint_restore",
+      "evidence": "Checkpoint backup integrity and restoration tests.",
+      "verified": true
+    },
+    {
+      "automatic_execution": false,
+      "capability": "audit_replay",
+      "evidence": "Workflow replay and runtime authorization verification.",
+      "verified": true
+    },
+    {
+      "automatic_execution": false,
+      "capability": "regional_recovery",
+      "evidence": "Resilience and disaster-recovery validation.",
+      "verified": true
+    }
+  ],
+  "release_train": "v2",
+  "residual_risks": [
+    {
+      "mitigation": "Timeouts, circuit breakers, fallback restrictions, and safe abstention.",
+      "risk_id": "external-provider-availability",
+      "severity": "MEDIUM",
+      "status": "MITIGATED_AND_MONITORED"
+    },
+    {
+      "mitigation": "Evaluation gates, observability, evidence review, and release controls.",
+      "risk_id": "model-quality-drift",
+      "severity": "MEDIUM",
+      "status": "MITIGATED_AND_MONITORED"
+    },
+    {
+      "mitigation": "Runbooks, role separation, approval binding, and audit evidence.",
+      "risk_id": "operator-process-failure",
+      "severity": "MEDIUM",
+      "status": "MITIGATED_AND_MONITORED"
+    }
+  ]
+}

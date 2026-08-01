@@ -1,0 +1,20 @@
+{
+  "release_id": "traditional-ml-genai-policy-agent-v2",
+  "release_version": "2.0.0",
+  "platform_contract_version": "incident-agent-platform-v1",
+  "source_branch": "main",
+  "candidate_status": "READY_FOR_CLOSURE_EVALUATION",
+  "artifact_digest": "sha256:8a0f50cd3ce94eb4f3957d15642f76488876ec499378c406952f55034f6815f3",
+  "configuration_digest": "sha256:e91bcc98be773985cf6afb16d2638999456e6901643388400ae8136acb12f643",
+  "policy_digest": "sha256:27823878c39689c085e0abc989b49077294046081c2c2a242ba4464cc47b738f",
+  "domain_pack_digests": {
+    "identity-operations-v1": "sha256:85c78713cab98b3e6e3c566ee12464282405636ca182e429ab54694051ffb17d",
+    "payments-operations-v1": "sha256:d1989d96ca6d8a17ff434216be96dbd087d914ea2dd2c5522e8cb8048492599e"
+  },
+  "target_environment": "production",
+  "deployment_performed": false,
+  "traffic_shift_performed": false,
+  "production_activation_performed": false,
+  "human_production_approval_required": true,
+  "immutable": true
+}

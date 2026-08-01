@@ -1,0 +1,41 @@
+{
+  "registry_id": "v2-release-closure-evidence-registry",
+  "release_id": "traditional-ml-genai-policy-agent-v2",
+  "evidence": [
+    {
+      "evidence_id": "phase-16-security-validation-report",
+      "phase": 16,
+      "path": "reports/security-validation/phase-16-security-validation-report.json",
+      "required": true,
+      "validated": true,
+      "decision": "APPROVED"
+    },
+    {
+      "evidence_id": "phase-17-domain-adaptation-report",
+      "phase": 17,
+      "path": "reports/domain-adaptation/phase-17-domain-adaptation-report.json",
+      "required": true,
+      "validated": true,
+      "decision": "READY_FOR_INTEGRATION"
+    },
+    {
+      "evidence_id": "phase-18-platform-acceptance-report",
+      "phase": 18,
+      "path": "reports/integration-acceptance/phase-18-platform-acceptance-report.json",
+      "required": true,
+      "validated": true,
+      "decision": "ACCEPTED_FOR_OPERATIONAL_READINESS"
+    },
+    {
+      "evidence_id": "phase-19-operational-readiness-report",
+      "phase": 19,
+      "path": "reports/operational-readiness/phase-19-operational-readiness-report.json",
+      "required": true,
+      "validated": true,
+      "decision": "READY_FOR_CONTROLLED_RELEASE_CLOSURE"
+    }
+  ],
+  "evidence_mutated": false,
+  "evidence_deleted": false,
+  "evidence_substituted": false
+}
