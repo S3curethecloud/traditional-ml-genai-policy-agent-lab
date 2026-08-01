@@ -1,0 +1,51 @@
+{
+  "policy_version": "runtime-operations-policy-v1",
+  "evaluation_window_minutes": 5,
+  "minimum_samples_per_sli": 4,
+  "error_budget_warning_threshold": 0.5,
+  "error_budget_exhausted_threshold": 1.0,
+  "automatic_remediation_allowed": false,
+  "automatic_rollback_allowed": false,
+  "human_escalation_required_for_production": true,
+  "slo_definitions": [
+    {
+      "slo_id": "availability-slo",
+      "metric_name": "request_success",
+      "description": "Successful request ratio",
+      "comparison": "gte",
+      "threshold": 1.0,
+      "target_percentage": 99.0
+    },
+    {
+      "slo_id": "latency-slo",
+      "metric_name": "request_latency_ms",
+      "description": "Requests complete within latency objective",
+      "comparison": "lte",
+      "threshold": 200.0,
+      "target_percentage": 95.0
+    },
+    {
+      "slo_id": "authorization-slo",
+      "metric_name": "unauthorized_runtime_execution",
+      "description": "Unauthorized runtime execution remains zero",
+      "comparison": "eq",
+      "threshold": 0.0,
+      "target_percentage": 100.0
+    },
+    {
+      "slo_id": "recovery-slo",
+      "metric_name": "recovery_time_seconds",
+      "description": "Recovery completes within five minutes",
+      "comparison": "lte",
+      "threshold": 300.0,
+      "target_percentage": 95.0
+    }
+  ],
+  "runbooks": {
+    "availability_degradation": "runbooks/availability-degradation.md",
+    "latency_degradation": "runbooks/latency-degradation.md",
+    "authorization_violation": "runbooks/authorization-violation.md",
+    "deployment_regression": "deployment/ROLLBACK_PLAN.md",
+    "unknown": "runbooks/manual-investigation.md"
+  }
+}

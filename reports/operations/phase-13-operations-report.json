@@ -1,0 +1,250 @@
+{
+  "alerts": [
+    {
+      "alert_id": "alert-5a818edeb226",
+      "alert_type": "AVAILABILITY_DEGRADATION",
+      "evidence_references": [
+        "availability-slo",
+        "request_success",
+        "EXHAUSTED"
+      ],
+      "metric_name": "request_success",
+      "severity": "SEV_2",
+      "slo_id": "availability-slo",
+      "summary": "availability-slo achieved 60.00% against target 99.00%."
+    },
+    {
+      "alert_id": "alert-d82d226ba2c8",
+      "alert_type": "LATENCY_DEGRADATION",
+      "evidence_references": [
+        "latency-slo",
+        "request_latency_ms",
+        "EXHAUSTED"
+      ],
+      "metric_name": "request_latency_ms",
+      "severity": "SEV_2",
+      "slo_id": "latency-slo",
+      "summary": "latency-slo achieved 40.00% against target 95.00%."
+    },
+    {
+      "alert_id": "alert-2eb82a6aace9",
+      "alert_type": "RECOVERY_OBJECTIVE_BREACH",
+      "evidence_references": [
+        "recovery-slo",
+        "recovery_time_seconds",
+        "EXHAUSTED"
+      ],
+      "metric_name": "recovery_time_seconds",
+      "severity": "SEV_3",
+      "slo_id": "recovery-slo",
+      "summary": "recovery-slo achieved 90.00% against target 95.00%."
+    }
+  ],
+  "audit_events": [
+    {
+      "detail": "Normal and degraded telemetry windows were evaluated.",
+      "event_type": "telemetry_evaluated",
+      "evidence_references": [
+        "availability-slo",
+        "latency-slo",
+        "authorization-slo",
+        "recovery-slo"
+      ],
+      "incident_id": "incident-24a7da9619fc",
+      "sequence": 1
+    },
+    {
+      "detail": "3 operational alert(s) were created.",
+      "event_type": "alerts_created",
+      "evidence_references": [
+        "alert-5a818edeb226",
+        "alert-d82d226ba2c8",
+        "alert-2eb82a6aace9"
+      ],
+      "incident_id": "incident-24a7da9619fc",
+      "sequence": 2
+    },
+    {
+      "detail": "3 operational alert(s) detected for production.",
+      "event_type": "incident_created",
+      "evidence_references": [
+        "phase-12-tutorial-release",
+        "correlated_to_current_release"
+      ],
+      "incident_id": "incident-24a7da9619fc",
+      "sequence": 3
+    },
+    {
+      "detail": "Availability evidence indicates service degradation.",
+      "event_type": "runbook_recommended",
+      "evidence_references": [
+        "runbooks/availability-degradation.md"
+      ],
+      "incident_id": "incident-24a7da9619fc",
+      "sequence": 4
+    },
+    {
+      "detail": "Current-release correlation and failed service objectives support a rollback recommendation.",
+      "event_type": "mitigation_recommended",
+      "evidence_references": [
+        "True"
+      ],
+      "incident_id": "incident-24a7da9619fc",
+      "sequence": 5
+    },
+    {
+      "detail": "Recovery telemetry satisfied all configured service objectives.",
+      "event_type": "recovery_verified",
+      "evidence_references": [
+        "RECOVERED"
+      ],
+      "incident_id": "incident-24a7da9619fc",
+      "sequence": 6
+    }
+  ],
+  "authority_boundary": "Runtime operations may observe, evaluate, classify, recommend, escalate, and verify. It cannot execute production remediation or rollback without a separate authorized deployment action.",
+  "automatic_remediation_performed": false,
+  "degraded_slo_results": [
+    {
+      "compliance_percentage": 60.0,
+      "compliant_samples": 12,
+      "error_budget_consumed": 40.0,
+      "error_budget_remaining": 0.0,
+      "error_budget_status": "EXHAUSTED",
+      "metric_name": "request_success",
+      "passed": false,
+      "sample_count": 20,
+      "slo_id": "availability-slo",
+      "target_percentage": 99.0
+    },
+    {
+      "compliance_percentage": 40.0,
+      "compliant_samples": 8,
+      "error_budget_consumed": 12.0,
+      "error_budget_remaining": 0.0,
+      "error_budget_status": "EXHAUSTED",
+      "metric_name": "request_latency_ms",
+      "passed": false,
+      "sample_count": 20,
+      "slo_id": "latency-slo",
+      "target_percentage": 95.0
+    },
+    {
+      "compliance_percentage": 100.0,
+      "compliant_samples": 20,
+      "error_budget_consumed": 0.0,
+      "error_budget_remaining": 1.0,
+      "error_budget_status": "HEALTHY",
+      "metric_name": "unauthorized_runtime_execution",
+      "passed": true,
+      "sample_count": 20,
+      "slo_id": "authorization-slo",
+      "target_percentage": 100.0
+    },
+    {
+      "compliance_percentage": 90.0,
+      "compliant_samples": 18,
+      "error_budget_consumed": 2.0,
+      "error_budget_remaining": 0.0,
+      "error_budget_status": "EXHAUSTED",
+      "metric_name": "recovery_time_seconds",
+      "passed": false,
+      "sample_count": 20,
+      "slo_id": "recovery-slo",
+      "target_percentage": 95.0
+    }
+  ],
+  "environment": "production",
+  "incident": {
+    "alert_ids": [
+      "alert-5a818edeb226",
+      "alert-d82d226ba2c8",
+      "alert-2eb82a6aace9"
+    ],
+    "deployment_correlation": "correlated_to_current_release",
+    "environment": "production",
+    "human_escalation_required": true,
+    "incident_id": "incident-24a7da9619fc",
+    "release_id": "phase-12-tutorial-release",
+    "severity": "SEV_2",
+    "status": "INVESTIGATING",
+    "summary": "3 operational alert(s) detected for production."
+  },
+  "mitigation": {
+    "human_approval_required": true,
+    "incident_id": "incident-24a7da9619fc",
+    "rationale": "Current-release correlation and failed service objectives support a rollback recommendation.",
+    "rollback_recommended": true
+  },
+  "normal_slo_results": [
+    {
+      "compliance_percentage": 100.0,
+      "compliant_samples": 20,
+      "error_budget_consumed": 0.0,
+      "error_budget_remaining": 1.0,
+      "error_budget_status": "HEALTHY",
+      "metric_name": "request_success",
+      "passed": true,
+      "sample_count": 20,
+      "slo_id": "availability-slo",
+      "target_percentage": 99.0
+    },
+    {
+      "compliance_percentage": 100.0,
+      "compliant_samples": 20,
+      "error_budget_consumed": 0.0,
+      "error_budget_remaining": 1.0,
+      "error_budget_status": "HEALTHY",
+      "metric_name": "request_latency_ms",
+      "passed": true,
+      "sample_count": 20,
+      "slo_id": "latency-slo",
+      "target_percentage": 95.0
+    },
+    {
+      "compliance_percentage": 100.0,
+      "compliant_samples": 20,
+      "error_budget_consumed": 0.0,
+      "error_budget_remaining": 1.0,
+      "error_budget_status": "HEALTHY",
+      "metric_name": "unauthorized_runtime_execution",
+      "passed": true,
+      "sample_count": 20,
+      "slo_id": "authorization-slo",
+      "target_percentage": 100.0
+    },
+    {
+      "compliance_percentage": 100.0,
+      "compliant_samples": 20,
+      "error_budget_consumed": 0.0,
+      "error_budget_remaining": 1.0,
+      "error_budget_status": "HEALTHY",
+      "metric_name": "recovery_time_seconds",
+      "passed": true,
+      "sample_count": 20,
+      "slo_id": "recovery-slo",
+      "target_percentage": 95.0
+    }
+  ],
+  "policy_version": "runtime-operations-policy-v1",
+  "production_side_effects_performed": false,
+  "recovery": {
+    "failed_slo_ids": [],
+    "incident_id": "incident-24a7da9619fc",
+    "recovered": true,
+    "recovered_slo_ids": [
+      "availability-slo",
+      "latency-slo",
+      "authorization-slo",
+      "recovery-slo"
+    ],
+    "status": "RECOVERED"
+  },
+  "release_id": "phase-12-tutorial-release",
+  "runbook": {
+    "automatic_execution_allowed": false,
+    "incident_id": "incident-24a7da9619fc",
+    "rationale": "Availability evidence indicates service degradation.",
+    "runbook_path": "runbooks/availability-degradation.md"
+  }
+}
